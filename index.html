@@ -1,245 +1,1969 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Insurama | Cotizador de Seguros</title>
   <style>
-    /* Estilos base integrados */
-    * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-    body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background-color: #f5f5f7; color: #070200; line-height: 1.5; }
-    
-    /* Layout */
-    .max-w-6xl { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-    .grid { display: grid; gap: 24px; }
-    .grid-cols-1 { grid-template-columns: repeat(1, 1fr); }
-    @media (min-width: 768px) { .grid-cols-2 { grid-template-columns: repeat(2, 1fr); } .grid-cols-3 { grid-template-columns: repeat(3, 1fr); } }
+    *,
+    ::backdrop,
+    :after,
+    :before {
+      --tw-border-spacing-x: 0;
+      --tw-border-spacing-y: 0;
+      --tw-translate-x: 0;
+      --tw-translate-y: 0;
+      --tw-rotate: 0;
+      --tw-skew-x: 0;
+      --tw-skew-y: 0;
+      --tw-scale-x: 1;
+      --tw-scale-y: 1;
+      --tw-pan-x: ;
+      --tw-pan-y: ;
+      --tw-pinch-zoom: ;
+      --tw-scroll-snap-strictness: proximity;
+      --tw-gradient-from-position: ;
+      --tw-gradient-via-position: ;
+      --tw-gradient-to-position: ;
+      --tw-ordinal: ;
+      --tw-slashed-zero: ;
+      --tw-numeric-figure: ;
+      --tw-numeric-spacing: ;
+      --tw-numeric-fraction: ;
+      --tw-ring-inset: ;
+      --tw-ring-offset-width: 0px;
+      --tw-ring-offset-color: #fff;
+      --tw-ring-color: #3b82f680;
+      --tw-ring-offset-shadow: 0 0 #0000;
+      --tw-ring-shadow: 0 0 #0000;
+      --tw-shadow: 0 0 #0000;
+      --tw-shadow-colored: 0 0 #0000;
+      --tw-blur: ;
+      --tw-brightness: ;
+      --tw-contrast: ;
+      --tw-grayscale: ;
+      --tw-hue-rotate: ;
+      --tw-invert: ;
+      --tw-saturate: ;
+      --tw-sepia: ;
+      --tw-drop-shadow: ;
+      --tw-backdrop-blur: ;
+      --tw-backdrop-brightness: ;
+      --tw-backdrop-contrast: ;
+      --tw-backdrop-grayscale: ;
+      --tw-backdrop-hue-rotate: ;
+      --tw-backdrop-invert: ;
+      --tw-backdrop-opacity: ;
+      --tw-backdrop-saturate: ;
+      --tw-backdrop-sepia: ;
+      --tw-contain-size: ;
+      --tw-contain-layout: ;
+      --tw-contain-paint: ;
+      --tw-contain-style:
+    }
 
-    /* Header */
-    header { background: #fff; border-bottom: 1px solid #e5e7eb; padding: 16px 0; position: sticky; top: 0; z-index: 50; transition: all 0.3s ease; }
-    header.scrolled { box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
+    /*! tailwindcss v3.4.19 | MIT License | https://tailwindcss.com*/
+    *,
+    :after,
+    :before {
+      box-sizing: border-box;
+      border: 0 solid #e5e7eb
+    }
 
-    /* Navegación */
-    .tab-nav { display: flex; gap: 8px; background: #f0f0f0; padding: 4px; border-radius: 12px; margin-bottom: 32px; }
-    .tab-btn { flex: 1; padding: 10px; border: none; border-radius: 8px; font-weight: 600; cursor: pointer; background: transparent; transition: all 0.2s; }
-    .tab-btn.active { background: #fff; color: #FE5000; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
-    .tab-content { display: none; }
-    .tab-content.active { display: block; }
+    :after,
+    :before {
+      --tw-content: ""
+    }
 
-    /* Inputs */
-    .input-card { background: #fff; border-radius: 24px; padding: 32px; border: 1.5px solid #e5e7eb; margin-bottom: 32px; }
-    input[type="number"] { width: 100%; padding: 16px; border: 2px solid #e5e7eb; border-radius: 16px; font-size: 24px; font-weight: 600; text-align: center; color: #FE5000; outline: none; transition: border-color 0.2s; }
-    input[type="number"]:focus { border-color: #FE5000; }
+    :host,
+    html {
+      line-height: 1.5;
+      -webkit-text-size-adjust: 100%;
+      -moz-tab-size: 4;
+      -o-tab-size: 4;
+      tab-size: 4;
+      font-family: ui-sans-serif, system-ui, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+      font-feature-settings: normal;
+      font-variation-settings: normal;
+      -webkit-tap-highlight-color: transparent
+    }
 
-    /* Botones de dispositivo */
-    .device-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 24px; }
-    .device-btn { display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 16px; border: 1.5px solid #e5e7eb; border-radius: 16px; cursor: pointer; transition: all 0.2s; background: #fff; }
-    .device-btn.active { border-color: #FE5000; background: rgba(254,80,0,0.05); color: #FE5000; }
-    .device-btn svg { width: 24px; height: 24px; }
+    body {
+      margin: 0;
+      line-height: inherit
+    }
 
-    /* Tarjetas de precios */
-    .fade-in { animation: fadeIn 0.4s ease forwards; }
-    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-    .card-hover:hover { transform: translateY(-4px); transition: transform 0.3s ease; }
+    hr {
+      height: 0;
+      color: inherit;
+      border-top-width: 1px
+    }
 
-    /* Utilidades */
-    .hidden { display: none; }
-    .section-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: #818181; font-weight: 700; margin-bottom: 12px; }
+    abbr:where([title]) {
+      -webkit-text-decoration: underline dotted;
+      text-decoration: underline dotted
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-size: inherit;
+      font-weight: inherit
+    }
+
+    a {
+      color: inherit;
+      text-decoration: inherit
+    }
+
+    b,
+    strong {
+      font-weight: bolder
+    }
+
+    code,
+    kbd,
+    pre,
+    samp {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace;
+      font-feature-settings: normal;
+      font-variation-settings: normal;
+      font-size: 1em
+    }
+
+    small {
+      font-size: 80%
+    }
+
+    sub,
+    sup {
+      font-size: 75%;
+      line-height: 0;
+      position: relative;
+      vertical-align: initial
+    }
+
+    sub {
+      bottom: -.25em
+    }
+
+    sup {
+      top: -.5em
+    }
+
+    table {
+      text-indent: 0;
+      border-color: inherit;
+      border-collapse: collapse
+    }
+
+    button,
+    input,
+    optgroup,
+    select,
+    textarea {
+      font-family: inherit;
+      font-feature-settings: inherit;
+      font-variation-settings: inherit;
+      font-size: 100%;
+      font-weight: inherit;
+      line-height: inherit;
+      letter-spacing: inherit;
+      color: inherit;
+      margin: 0;
+      padding: 0
+    }
+
+    button,
+    select {
+      text-transform: none
+    }
+
+    button,
+    input:where([type=button]),
+    input:where([type=reset]),
+    input:where([type=submit]) {
+      -webkit-appearance: button;
+      background-color: initial;
+      background-image: none
+    }
+
+    :-moz-focusring {
+      outline: auto
+    }
+
+    :-moz-ui-invalid {
+      box-shadow: none
+    }
+
+    progress {
+      vertical-align: initial
+    }
+
+    ::-webkit-inner-spin-button,
+    ::-webkit-outer-spin-button {
+      height: auto
+    }
+
+    [type=search] {
+      -webkit-appearance: textfield;
+      outline-offset: -2px
+    }
+
+    ::-webkit-search-decoration {
+      -webkit-appearance: none
+    }
+
+    ::-webkit-file-upload-button {
+      -webkit-appearance: button;
+      font: inherit
+    }
+
+    summary {
+      display: list-item
+    }
+
+    blockquote,
+    dd,
+    dl,
+    figure,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    hr,
+    p,
+    pre {
+      margin: 0
+    }
+
+    fieldset {
+      margin: 0
+    }
+
+    fieldset,
+    legend {
+      padding: 0
+    }
+
+    menu,
+    ol,
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0
+    }
+
+    dialog {
+      padding: 0
+    }
+
+    textarea {
+      resize: vertical
+    }
+
+    input::-moz-placeholder,
+    textarea::-moz-placeholder {
+      opacity: 1;
+      color: #9ca3af
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      opacity: 1;
+      color: #9ca3af
+    }
+
+    [role=button],
+    button {
+      cursor: pointer
+    }
+
+    :disabled {
+      cursor: default
+    }
+
+    audio,
+    canvas,
+    embed,
+    iframe,
+    img,
+    object,
+    svg,
+    video {
+      display: block;
+      vertical-align: middle
+    }
+
+    img,
+    video {
+      max-width: 100%;
+      height: auto
+    }
+
+    [hidden]:where(:not([hidden=until-found])) {
+      display: none
+    }
+
+    .pointer-events-none {
+      pointer-events: none
+    }
+
+    .absolute {
+      position: absolute
+    }
+
+    .relative {
+      position: relative
+    }
+
+    .sticky {
+      position: sticky
+    }
+
+    .inset-0 {
+      inset: 0
+    }
+
+    .left-4 {
+      left: 1rem
+    }
+
+    .top-0 {
+      top: 0
+    }
+
+    .top-1\/2 {
+      top: 50%
+    }
+
+    .z-10 {
+      z-index: 10
+    }
+
+    .z-50 {
+      z-index: 50
+    }
+
+    .col-span-full {
+      grid-column: 1/-1
+    }
+
+    .mx-auto {
+      margin-left: auto;
+      margin-right: auto
+    }
+
+    .mb-0\.5 {
+      margin-bottom: .125rem
+    }
+
+    .mb-1 {
+      margin-bottom: .25rem
+    }
+
+    .mb-10 {
+      margin-bottom: 2.5rem
+    }
+
+    .mb-2 {
+      margin-bottom: .5rem
+    }
+
+    .mb-3 {
+      margin-bottom: .75rem
+    }
+
+    .mb-4 {
+      margin-bottom: 1rem
+    }
+
+    .mb-5 {
+      margin-bottom: 1.25rem
+    }
+
+    .mb-6 {
+      margin-bottom: 1.5rem
+    }
+
+    .mb-7 {
+      margin-bottom: 1.75rem
+    }
+
+    .mb-8 {
+      margin-bottom: 2rem
+    }
+
+    .mt-1 {
+      margin-top: .25rem
+    }
+
+    .mt-1\.5 {
+      margin-top: .375rem
+    }
+
+    .mt-5 {
+      margin-top: 1.25rem
+    }
+
+    .mt-auto {
+      margin-top: auto
+    }
+
+    .block {
+      display: block
+    }
+
+    .flex {
+      display: flex
+    }
+
+    .inline-flex {
+      display: inline-flex
+    }
+
+    .grid {
+      display: grid
+    }
+
+    .hidden {
+      display: none
+    }
+
+    .h-1 {
+      height: .25rem
+    }
+
+    .h-10 {
+      height: 2.5rem
+    }
+
+    .h-2 {
+      height: .5rem
+    }
+
+    .h-9 {
+      height: 2.25rem
+    }
+
+    .h-px {
+      height: 1px
+    }
+
+    .min-h-screen {
+      min-height: 100vh
+    }
+
+    .w-10 {
+      width: 2.5rem
+    }
+
+    .w-2 {
+      width: .5rem
+    }
+
+    .w-9 {
+      width: 2.25rem
+    }
+
+    .w-auto {
+      width: auto
+    }
+
+    .w-full {
+      width: 100%
+    }
+
+    .max-w-6xl {
+      max-width: 72rem
+    }
+
+    .flex-1 {
+      flex: 1 1 0%
+    }
+
+    .flex-shrink-0 {
+      flex-shrink: 0
+    }
+
+    .-translate-y-1\/2 {
+      --tw-translate-y: -50%;
+      transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))
+    }
+
+    .grid-cols-1 {
+      grid-template-columns: repeat(1, minmax(0, 1fr))
+    }
+
+    .grid-cols-4 {
+      grid-template-columns: repeat(4, minmax(0, 1fr))
+    }
+
+    .flex-col {
+      flex-direction: column
+    }
+
+    .items-start {
+      align-items: flex-start
+    }
+
+    .items-end {
+      align-items: flex-end
+    }
+
+    .items-center {
+      align-items: center
+    }
+
+    .justify-center {
+      justify-content: center
+    }
+
+    .justify-between {
+      justify-content: space-between
+    }
+
+    .gap-1 {
+      gap: .25rem
+    }
+
+    .gap-2 {
+      gap: .5rem
+    }
+
+    .gap-3 {
+      gap: .75rem
+    }
+
+    .gap-4 {
+      gap: 1rem
+    }
+
+    .gap-5 {
+      gap: 1.25rem
+    }
+
+    .gap-6 {
+      gap: 1.5rem
+    }
+
+    .space-y-2>:not([hidden])~:not([hidden]) {
+      --tw-space-y-reverse: 0;
+      margin-top: calc(.5rem*(1 - var(--tw-space-y-reverse)));
+      margin-bottom: calc(.5rem*var(--tw-space-y-reverse))
+    }
+
+    .space-y-3>:not([hidden])~:not([hidden]) {
+      --tw-space-y-reverse: 0;
+      margin-top: calc(.75rem*(1 - var(--tw-space-y-reverse)));
+      margin-bottom: calc(.75rem*var(--tw-space-y-reverse))
+    }
+
+    .space-y-5>:not([hidden])~:not([hidden]) {
+      --tw-space-y-reverse: 0;
+      margin-top: calc(1.25rem*(1 - var(--tw-space-y-reverse)));
+      margin-bottom: calc(1.25rem*var(--tw-space-y-reverse))
+    }
+
+    .overflow-hidden {
+      overflow: hidden
+    }
+
+    .rounded-full {
+      border-radius: 9999px
+    }
+
+    .rounded-lg {
+      border-radius: .5rem
+    }
+
+    .rounded-xl {
+      border-radius: .75rem
+    }
+
+    .border-b {
+      border-bottom-width: 1px
+    }
+
+    .border-gray-200\/80 {
+      border-color: #e5e7ebcc
+    }
+
+    .p-1 {
+      padding: .25rem
+    }
+
+    .p-10 {
+      padding: 2.5rem
+    }
+
+    .p-2\.5 {
+      padding: .625rem
+    }
+
+    .p-4 {
+      padding: 1rem
+    }
+
+    .p-5 {
+      padding: 1.25rem
+    }
+
+    .p-6 {
+      padding: 1.5rem
+    }
+
+    .p-7 {
+      padding: 1.75rem
+    }
+
+    .px-2 {
+      padding-left: .5rem;
+      padding-right: .5rem
+    }
+
+    .px-3 {
+      padding-left: .75rem;
+      padding-right: .75rem
+    }
+
+    .px-4 {
+      padding-left: 1rem;
+      padding-right: 1rem
+    }
+
+    .px-5 {
+      padding-left: 1.25rem;
+      padding-right: 1.25rem
+    }
+
+    .px-6 {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem
+    }
+
+    .py-1 {
+      padding-top: .25rem;
+      padding-bottom: .25rem
+    }
+
+    .py-10 {
+      padding-top: 2.5rem;
+      padding-bottom: 2.5rem
+    }
+
+    .py-14 {
+      padding-top: 3.5rem;
+      padding-bottom: 3.5rem
+    }
+
+    .py-2 {
+      padding-top: .5rem;
+      padding-bottom: .5rem
+    }
+
+    .py-3 {
+      padding-top: .75rem;
+      padding-bottom: .75rem
+    }
+
+    .py-4 {
+      padding-top: 1rem;
+      padding-bottom: 1rem
+    }
+
+    .pl-10 {
+      padding-left: 2.5rem
+    }
+
+    .pr-4 {
+      padding-right: 1rem
+    }
+
+    .text-center {
+      text-align: center
+    }
+
+    .text-3xl {
+      font-size: 1.875rem;
+      line-height: 2.25rem
+    }
+
+    .text-\[10px\] {
+      font-size: 10px
+    }
+
+    .text-base {
+      font-size: 1rem;
+      line-height: 1.5rem
+    }
+
+    .text-lg {
+      font-size: 1.125rem;
+      line-height: 1.75rem
+    }
+
+    .text-sm {
+      font-size: .875rem;
+      line-height: 1.25rem
+    }
+
+    .text-xs {
+      font-size: .75rem;
+      line-height: 1rem
+    }
+
+    .font-medium {
+      font-weight: 500
+    }
+
+    .font-normal {
+      font-weight: 400
+    }
+
+    .font-semibold {
+      font-weight: 600
+    }
+
+    .uppercase {
+      text-transform: uppercase
+    }
+
+    .leading-relaxed {
+      line-height: 1.625
+    }
+
+    .leading-tight {
+      line-height: 1.25
+    }
+
+    .tracking-wide {
+      letter-spacing: .025em
+    }
+
+    .tracking-widest {
+      letter-spacing: .1em
+    }
+
+    .text-white {
+      --tw-text-opacity: 1;
+      color: rgb(255 255 255/var(--tw-text-opacity, 1))
+    }
+
+    .transition-all {
+      transition-property: all;
+      transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+      transition-duration: .15s
+    }
+
+    .transition-colors {
+      transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+      transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+      transition-duration: .15s
+    }
+
+    .hover\:text-brand:hover {
+      --tw-text-opacity: 1;
+      color: rgb(254 80 0/var(--tw-text-opacity, 1))
+    }
+
+    @media (min-width:640px) {
+      .sm\:text-4xl {
+        font-size: 2.25rem;
+        line-height: 2.5rem
+      }
+    }
+
+    @media (min-width:768px) {
+      .md\:col-span-2 {
+        grid-column: span 2/span 2
+      }
+
+      .md\:col-span-3 {
+        grid-column: span 3/span 3
+      }
+
+      .md\:col-span-4 {
+        grid-column: span 4/span 4
+      }
+
+      .md\:col-span-5 {
+        grid-column: span 5/span 5
+      }
+
+      .md\:h-12 {
+        height: 3rem
+      }
+
+      .md\:grid-cols-12 {
+        grid-template-columns: repeat(12, minmax(0, 1fr))
+      }
+
+      .md\:grid-cols-2 {
+        grid-template-columns: repeat(2, minmax(0, 1fr))
+      }
+
+      .md\:grid-cols-3 {
+        grid-template-columns: repeat(3, minmax(0, 1fr))
+      }
+
+      .md\:p-8 {
+        padding: 2rem
+      }
+
+      .md\:px-12 {
+        padding-left: 3rem;
+        padding-right: 3rem
+      }
+
+      .md\:py-20 {
+        padding-top: 5rem;
+        padding-bottom: 5rem
+      }
+
+      .md\:text-4xl {
+        font-size: 2.25rem;
+        line-height: 2.5rem
+      }
+
+      .md\:text-6xl {
+        font-size: 3.75rem;
+        line-height: 1
+      }
+    }
+
+    @media (min-width:1024px) {
+      .lg\:grid-cols-3 {
+        grid-template-columns: repeat(3, minmax(0, 1fr))
+      }
+    }
+  </style>
+  <style>
+    * {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -webkit-tap-highlight-color: transparent;
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      overflow-x: hidden;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .stagger-1 {
+      transition-delay: 0.1s;
+    }
+
+    .stagger-2 {
+      transition-delay: 0.2s;
+    }
+
+    .stagger-3 {
+      transition-delay: 0.3s;
+    }
+
+    .stagger-4 {
+      transition-delay: 0.4s;
+    }
+
+    .card-hover {
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .card-hover:hover {
+      transform: translateY(-4px) scale(1.012);
+    }
+
+    .glow-brand {
+      box-shadow: 0 8px 32px rgba(254, 80, 0, 0.18), 0 0 0 2px rgba(254, 80, 0, 0.15);
+    }
+
+    .glow-brand:hover {
+      box-shadow: 0 12px 40px rgba(254, 80, 0, 0.28), 0 0 0 2px rgba(254, 80, 0, 0.25);
+    }
+
+    @keyframes shimmer {
+      0% {
+        background-position: -400px 0;
+      }
+
+      100% {
+        background-position: 400px 0;
+      }
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0px);
+      }
+
+      50% {
+        transform: translateY(-8px);
+      }
+    }
+
+    .animate-float {
+      animation: float 4s ease-in-out infinite;
+    }
+
+    @keyframes orbPulse {
+
+      0%,
+      100% {
+        opacity: 0.35;
+        transform: scale(1);
+      }
+
+      50% {
+        opacity: 0.55;
+        transform: scale(1.08);
+      }
+    }
+
+    .hero-orb {
+      animation: orbPulse 6s ease-in-out infinite;
+    }
+
+    .glass {
+      background: rgba(255, 255, 255, 0.96);
+      border: 1px solid rgba(0, 0, 0, 0.07);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.07);
+    }
+
+    .device-btn {
+      cursor: pointer;
+      transition: all 0.2s ease;
+      border: 1.5px solid #e5e7eb;
+      color: #818181;
+    }
+
+    .device-btn:hover {
+      border-color: #FE5000;
+      color: #FE5000;
+      background: rgba(254, 80, 0, 0.04);
+    }
+
+    .device-btn.active {
+      background: linear-gradient(135deg, #FE5000 0%, #c23d00 100%);
+      border-color: transparent;
+      color: white;
+      box-shadow: 0 4px 16px rgba(254, 80, 0, 0.35);
+    }
+
+    .device-btn.active span,
+    .device-btn.active svg {
+      color: white;
+      stroke: white;
+    }
+
+    .toggle-switch {
+      width: 44px;
+      height: 24px;
+      background: #d1d5db;
+      border-radius: 12px;
+      position: relative;
+      cursor: pointer;
+      transition: background 0.3s;
+      flex-shrink: 0;
+    }
+
+    .toggle-switch.on {
+      background: #FE5000;
+    }
+
+    .toggle-switch::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: white;
+      border-radius: 50%;
+      top: 2px;
+      left: 2px;
+      transition: transform 0.3s;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    .toggle-switch.on::after {
+      transform: translateX(20px);
+    }
+
+    .tab-btn {
+      cursor: pointer;
+      padding: 7px 14px;
+      font-weight: 500;
+      font-size: 13px;
+      border-radius: 8px;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+
+    .tab-btn.active {
+      background: #FE5000;
+      color: white;
+      box-shadow: 0 2px 12px rgba(254, 80, 0, 0.3);
+    }
+
+    .tab-btn:not(.active) {
+      color: #524C4A;
+    }
+
+    .tab-btn:not(.active):hover {
+      background: rgba(0, 0, 0, 0.05);
+    }
+
+    @media (max-width: 400px) {
+      .tab-btn {
+        padding: 6px 10px;
+        font-size: 12px;
+      }
+    }
+
+    .tab-content {
+      display: none;
+      animation: tabFadeIn 0.35s ease;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    @keyframes tabFadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(6px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    header {
+      transition: box-shadow 0.3s ease, border-color 0.3s ease;
+      padding-left: env(safe-area-inset-left);
+      padding-right: env(safe-area-inset-right);
+    }
+
+    header.scrolled {
+      box-shadow: 0 2px 24px rgba(254, 80, 0, 0.08);
+      border-bottom-color: rgba(254, 80, 0, 0.18) !important;
+    }
+
+    footer {
+      padding-bottom: calc(env(safe-area-inset-bottom) + 2.5rem);
+    }
+
+    input:focus {
+      outline: none;
+      border-color: #FE5000 !important;
+      box-shadow: 0 0 0 3px rgba(254, 80, 0, 0.15) !important;
+    }
+
+    input[type="number"]::-webkit-inner-spin-button,
+    input[type="number"]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    input[type="number"] {
+      -moz-appearance: textfield;
+    }
+
+    @keyframes pulse-glow {
+
+      0%,
+      100% {
+        box-shadow: 0 8px 32px rgba(254, 80, 0, 0.15), 0 0 0 2px rgba(254, 80, 0, 0.12);
+      }
+
+      50% {
+        box-shadow: 0 12px 40px rgba(254, 80, 0, 0.28), 0 0 0 2px rgba(254, 80, 0, 0.22);
+      }
+    }
+
+    .recommended-pulse {
+      animation: pulse-glow 3s infinite;
+    }
+
+    .fade-in {
+      animation: fadeIn 0.4s ease;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(8px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: #FE5000;
+    }
+
+    .step-connector {
+      flex: 1;
+      height: 2px;
+      background: linear-gradient(90deg, #FE5000, rgba(254, 80, 0, 0.2));
+      margin: 0 8px;
+      margin-top: -20px;
+    }
+
+    .coverage-card {
+      border-radius: 20px;
+      overflow: hidden;
+      background: white;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.07);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .coverage-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.11);
+    }
+
+    button,
+    input,
+    [onclick] {
+      touch-action: manipulation;
+    }
+
+    @media (max-width: 380px) {
+      .hero-section h1 {
+        font-size: 1.6rem;
+        line-height: 1.2;
+      }
+
+      .device-btn span {
+        font-size: 9px;
+      }
+    }
   </style>
 </head>
-<body>
 
-  <header>
-    <div class="max-w-6xl flex items-center justify-between">
-      <img src="Insurama-Logo-600px-1.png" alt="Insurama" style="height: 32px;">
-      <div style="font-size: 12px; font-weight: 600; color: #FE5000;">COTIZADOR PREMIUM</div>
+<body class="min-h-screen flex flex-col" style="background:#f5f5f7; color:#070200"> <!-- ===== NAVBAR ===== -->
+  <header class="sticky top-0 z-50 border-b border-gray-200/80"
+    style="background:rgba(255,255,255,0.92);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between gap-4"> <img
+        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAlgAAAB2CAYAAAAUX+2zAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA3hpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTM4IDc5LjE1OTgyNCwgMjAxNi8wOS8xNC0wMTowOTowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo3YTZkZTQ2MS04MTI0LTQzNjEtOWI4Ny0zYjAwY2QzOGI1MjkiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6M0QwQjVBRjBBMTg4MTFFQUIzNjFCNjc5OEFDQzIwM0EiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6M0QwQjVBRUZBMTg4MTFFQUIzNjFCNjc5OEFDQzIwM0EiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTcgKE1hY2ludG9zaCkiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo3YTZkZTQ2MS04MTI0LTQzNjEtOWI4Ny0zYjAwY2QzOGI1MjkiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6N2E2ZGU0NjEtODEyNC00MzYxLTliODctM2IwMGNkMzhiNTI5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"
+        alt="Insurama" style="height:44px;width:auto;display:block;">
+      <div class="flex gap-1 p-1 rounded-xl" style="background:rgba(0,0,0,0.05)"> <button class="tab-btn active"
+          onclick="showTab('cotizador',this)">Cotizador</button> <button class="tab-btn"
+          onclick="showTab('guia',this)">Guía</button> <button class="tab-btn"
+          onclick="showTab('contacto',this)">Contacto</button> </div>
     </div>
-  </header>
-
-  <div class="max-w-6xl" style="padding-top: 32px; padding-bottom: 60px;">
-    <!-- Navegación -->
-    <div class="tab-nav">
-      <button class="tab-btn active" onclick="showTab('cotizar', this)">Cotizador</button>
-      <button class="tab-btn" onclick="showTab('guia', this)">Guía de Cobertura</button>
+  </header> <!-- ===== HERO ===== -->
+  <section class="hero-section relative overflow-hidden py-14 md:py-20 px-4"
+    style="background:linear-gradient(135deg, #0a0a0f 0%, #1a0800 50%, #0a0a0f 100%)"> <!-- Floating orb -->
+    <div class="hero-orb absolute pointer-events-none"
+      style="width:480px;height:480px;border-radius:50%;background:radial-gradient(circle, rgba(254,80,0,0.22) 0%, transparent 70%);top:-80px;right:-80px;filter:blur(40px)">
     </div>
-
-    <!-- TAB: COTIZAR -->
-    <div id="tab-cotizar" class="tab-content active">
-      <div class="input-card">
-        <p class="section-label">Precio del equipo (USD)</p>
-        <input id="priceInput" type="number" placeholder="0.00" oninput="calculate()" onchange="calculate()">
-        
-        <div class="device-grid">
-          <button class="device-btn active" data-dev="iphone" onclick="selectDevice('iphone')">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17 19H7V5h10v14zm-5-1c.55 0 1-.45 1-1s-.45-1-1-1-1 .45-1 1 .45 1 1 1zm4-16H8c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
-            <span style="font-size: 11px; font-weight: 600;">iPhone</span>
-          </button>
-          <button class="device-btn" data-dev="ipad" onclick="selectDevice('ipad')">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 18H5V6h14v12zm-7-1c.55 0 1-.45 1-1s-.45-1-1-1-1 .45-1 1 .45 1 1 1zm6-16H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
-            <span style="font-size: 11px; font-weight: 600;">iPad</span>
-          </button>
-          <button class="device-btn" data-dev="mac" onclick="selectDevice('mac')">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 18c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2H0v2h24v-2h-4zM4 6h16v10H4V6z"/></svg>
-            <span style="font-size: 11px; font-weight: 600;">Mac</span>
-          </button>
-          <button class="device-btn" data-dev="watch" onclick="selectDevice('watch')">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c-3.3 0-6 2.7-6 6s2.7 6 6 6 6-2.7 6-6-2.7-6-6-6zm0 10c-2.2 0-4-1.8-4-4s1.8-4 4-4 4 1.8 4 4-1.8 4-4 4zm4.2 3c-.8-.6-1.7-.9-2.2-1-1.3-.3-2.7-.3-4 0-.5.1-1.4.4-2.2 1-1.5 1-2.8 2.6-3.8 4.7l1.8.8c.8-1.7 1.8-3 3-3.8.4-.3.9-.5 1.5-.6 1.1-.2 2.3-.2 3.4 0 .6.1 1.1.3 1.5.6 1.2.8 2.2 2.1 3 3.8l1.8-.8c-1-2.1-2.3-3.7-3.8-4.7z"/></svg>
-            <span style="font-size: 11px; font-weight: 600;">Watch</span>
-          </button>
+    <div class="absolute pointer-events-none"
+      style="width:300px;height:300px;border-radius:50%;background:radial-gradient(circle, rgba(254,80,0,0.1) 0%, transparent 70%);bottom:-60px;left:5%;filter:blur(60px)">
+    </div>
+    <div class="max-w-6xl mx-auto text-center relative z-10">
+      <h1 class="text-3xl sm:text-4xl md:text-6xl font-semibold text-white leading-tight mb-5"
+        style="letter-spacing:-0.02em"> Protege el Ecosistema <span style="color:#FE5000">Apple</span> </h1>
+    </div>
+  </section> <!-- TAB: COTIZADOR -->
+  <div id="tab-cotizador" class="tab-content active">
+    <section class="max-w-6xl mx-auto px-4 py-10"> <!-- Calculator panel -->
+      <div class="reveal visible rounded-[24px] p-6 md:p-8 mb-8"
+        style="background:#fff;box-shadow:0 8px 40px rgba(0,0,0,0.09);border:1px solid rgba(0,0,0,0.06)">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-5 items-end"> <!-- Device Selector -->
+          <div class="md:col-span-5"> <label class="section-label mb-3 block">Dispositivo</label>
+            <div class="grid grid-cols-4 gap-2" id="deviceGrid"> <button onclick="selectDevice('iphone')"
+                data-dev="iphone"
+                class="device-btn active flex flex-col items-center py-3 px-2 rounded-xl transition-all"> <svg
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"
+                  width="22" height="22">
+                  <rect x="5" y="2" width="14" height="20" rx="2.5" />
+                  <line x1="10" y1="19" x2="14" y2="19" />
+                </svg> <span class="text-xs mt-1.5 font-medium">iPhone</span> </button> <button
+                onclick="selectDevice('ipad')" data-dev="ipad"
+                class="device-btn flex flex-col items-center py-3 px-2 rounded-xl transition-all"> <svg
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"
+                  width="22" height="22">
+                  <rect x="3" y="4" width="18" height="16" rx="2.5" />
+                  <line x1="11" y1="18.5" x2="13" y2="18.5" />
+                </svg> <span class="text-xs mt-1.5 font-medium">iPad</span> </button> <button
+                onclick="selectDevice('mac')" data-dev="mac"
+                class="device-btn flex flex-col items-center py-3 px-2 rounded-xl transition-all"> <svg
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"
+                  width="22" height="22">
+                  <rect x="2" y="4" width="20" height="13" rx="2" />
+                  <path d="M1 20h22M8 17l-1 3M16 17l1 3" />
+                </svg> <span class="text-xs mt-1.5 font-medium">Mac</span> </button> <button
+                onclick="selectDevice('watch')" data-dev="watch"
+                class="device-btn flex flex-col items-center py-3 px-2 rounded-xl transition-all"> <svg
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"
+                  width="22" height="22">
+                  <rect x="7" y="7" width="10" height="10" rx="2" />
+                  <path d="M10 7V5h4v2M10 17v2h4v-2" />
+                </svg> <span class="text-xs mt-1.5 font-medium">Watch</span> </button> </div>
+          </div> <!-- Value Input -->
+          <div class="md:col-span-4"> <label class="section-label mb-3 block">Precio de Lista (USD)</label>
+            <div class="relative"> <span class="absolute left-4 top-1/2 -translate-y-1/2 font-normal text-base"
+                style="color:#818181">$</span> <input id="priceInput" type="number" min="0" step="1"
+                placeholder="Precio del dispositivo"
+                class="w-full rounded-xl py-4 pl-10 pr-4 text-base font-normal transition-all"
+                style="background:#f5f5f7;border:1.5px solid #e5e7eb;color:#070200" oninput="calculate()"> </div>
+          </div> <!-- Monthly Toggle -->
+          <div class="md:col-span-3">
+            <div class="flex items-center justify-between py-4 px-5 rounded-xl"
+              style="background:#f5f5f7;border:1.5px solid #e5e7eb">
+              <div>
+                <p class="text-xs font-medium uppercase tracking-wide mb-0.5" style="color:#524C4A">Cuota Mensual</p>
+                <p class="text-[10px]" style="color:#818181">Ver precio por mes</p>
+              </div>
+              <div id="monthlyToggle" class="toggle-switch" onclick="toggleMonthly()"></div>
+            </div>
+          </div>
+        </div> <!-- Range indicator -->
+        <div id="rangeIndicator" class="mt-5 hidden"> <span
+            class="inline-flex items-center gap-2 text-xs font-semibold px-3 py-2 rounded-lg"
+            style="background:#f5f5f7;color:#524C4A"> <svg viewBox="0 0 24 24" fill="currentColor" width="13"
+              height="13" style="color:#FE5000">
+              <path
+                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z" />
+            </svg> <span id="rangeText"></span> </span> </div>
+      </div> <!-- Pricing cards -->
+      <div id="cardsContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10"></div>
+    </section>
+  </div> <!-- TAB: GUIA -->
+  <div id="tab-guia" class="tab-content"> <!-- Hero -->
+    <section class="reveal relative overflow-hidden flex items-center px-6 md:px-12 py-14"
+      style="background:linear-gradient(135deg,#0a0a0f 0%,#1a0800 55%,#0a0a0f 100%)">
+      <div class="absolute inset-0 pointer-events-none"
+        style="background:radial-gradient(circle at 72% 50%, rgba(254,80,0,0.18) 0%, transparent 60%)"></div>
+      <div class="relative z-10 max-w-6xl mx-auto w-full">
+        <h2 class="text-3xl md:text-4xl font-semibold text-white leading-tight">Tus dispositivos Apple protegidos <span
+            style="color:#FE5000">contra todo riesgo.</span> </h2>
+      </div>
+    </section> <!-- ¿Qu&copy; cubre tu seguro? — fondo blanco -->
+    <section class="reveal py-10 px-4" style="background:#fff">
+      <div class="max-w-6xl mx-auto">
+        <p class="section-label mb-6">¿Qu&copy; cubre tu seguro?</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <div class="coverage-card card-hover glow-brand">
+            <div class="p-5" style="background:linear-gradient(135deg,#FE5000 0%,#c23d00 100%)">
+              <div class="flex items-center gap-3">
+                <div class="rounded-full p-2.5" style="background:rgba(255,255,255,0.2)"> <svg viewBox="0 0 24 24"
+                    fill="white" width="22" height="22">
+                    <path d="M12 2L4 5.5V12c0 5 3.5 9.7 8 11 4.5-1.3 8-6 8-11V5.5L12 2z" />
+                  </svg> </div>
+                <div>
+                  <p class="font-semibold text-white text-base">Todo Riesgo</p>
+                  <p class="text-xs uppercase tracking-widest" style="color:rgba(255,255,255,0.7)">Cobertura completa
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="p-6">
+              <ul class="space-y-3">
+                <li class="flex items-center gap-3 text-sm" style="color:#070200"><span
+                    class="w-2 h-2 rounded-full flex-shrink-0" style="background:#FE5000"></span>Daño Accidental (caídas
+                  y mojaduras)</li>
+                <li class="flex items-center gap-3 text-sm" style="color:#070200"><span
+                    class="w-2 h-2 rounded-full flex-shrink-0" style="background:#FE5000"></span>Robo y Hurto</li>
+                <li class="flex items-center gap-3 text-sm" style="color:#070200"><span
+                    class="w-2 h-2 rounded-full flex-shrink-0" style="background:#FE5000"></span>Sin Deducible</li>
+              </ul>
+            </div>
+          </div>
+          <div class="coverage-card card-hover" style="box-shadow:0 4px 24px rgba(7,2,0,0.1)">
+            <div class="p-5" style="background:linear-gradient(135deg,#524C4A 0%,#070200 100%)">
+              <div class="flex items-center gap-3">
+                <div class="rounded-full p-2.5" style="background:rgba(255,255,255,0.2)"> <svg viewBox="0 0 24 24"
+                    fill="white" width="22" height="22">
+                    <path
+                      d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z" />
+                  </svg> </div>
+                <div>
+                  <p class="font-semibold text-white text-base">Robo y Hurto</p>
+                  <p class="text-xs uppercase tracking-widest" style="color:rgba(255,255,255,0.7)">Protección contra
+                    sustracción</p>
+                </div>
+              </div>
+            </div>
+            <div class="p-6">
+              <ul class="space-y-3">
+                <li class="flex items-center gap-3 text-sm" style="color:#070200"><span
+                    class="w-2 h-2 rounded-full flex-shrink-0" style="background:#524C4A"></span>Robo con violencia</li>
+                <li class="flex items-center gap-3 text-sm" style="color:#070200"><span
+                    class="w-2 h-2 rounded-full flex-shrink-0" style="background:#524C4A"></span>Hurto (descuido)</li>
+                <li class="flex items-center gap-3 text-sm" style="color:#070200"><span
+                    class="w-2 h-2 rounded-full flex-shrink-0" style="background:#524C4A"></span>Sin Deducible</li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
-
-      <div id="rangeIndicator" class="hidden" style="margin-bottom: 20px; text-align: center;">
-        <span id="rangeText" style="font-size: 12px; font-weight: 600; background: #eee; padding: 6px 12px; border-radius: 20px; color: #555;"></span>
-      </div>
-
-      <div id="cardsContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3"></div>
-    </div>
-
-    <!-- TAB: GUIA -->
-    <div id="tab-guia" class="tab-content">
-      <div class="input-card" style="background: linear-gradient(135deg, #070200, #1a0800); color: #fff; border: none;">
-        <h2 style="margin: 0; font-size: 28px;">Guía de Coberturas</h2>
-        <p style="color: rgba(255,255,255,0.6); margin-top: 8px;">Conoce qué protege tu seguro Insurama.</p>
-      </div>
-      
-      <div class="grid grid-cols-1 md:grid-cols-2">
-        <div style="background:#fff; padding:24px; border-radius:24px; border:1px solid #e5e7eb;">
-          <h3 style="color:#FE5000; margin-top:0;">Todo Riesgo</h3>
-          <ul style="padding-left: 20px; font-size: 14px; color: #555;">
-            <li>Daños accidentales (pantallas rotas, mojaduras)</li>
-            <li>Robo con violencia</li>
-            <li>Hurto (descuido)</li>
-            <li>Sin deducibles</li>
-          </ul>
+    </section> <!-- ¿Cómo funcionan los Seguros? — fondo oscuro bento grid -->
+    <section class="reveal py-10 px-4" style="background:#070200">
+      <div class="max-w-6xl mx-auto">
+        <p class="section-label mb-6" style="color:rgba(255,255,255,0.45)">¿Cómo funcionan los Seguros?</p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4"> <!-- Grande: Producto nuevo -->
+          <div class="md:col-span-2 rounded-[20px] p-7 flex flex-col gap-3"
+            style="background:#1a0c04;border:1px solid rgba(254,80,0,0.15)">
+            <div class="w-10 h-10 rounded-xl flex items-center justify-center" style="background:rgba(254,80,0,0.12)">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20" style="color:#FE5000">
+                <path
+                  d="M20 6h-2.18c.07-.44.18-.86.18-1a3 3 0 00-6 0c0 .14.11.56.18 1H10c-.55 0-1 .45-1 1v2c0 .55.45 1 1 1h10c.55 0 1-.45 1-1V7c0-.55-.45-1-1-1zm-5 0a1 1 0 11-2 0 1 1 0 012 0zM4 17h16v2H4zm0-4h16v2H4z" />
+              </svg>
+            </div>
+            <p class="font-semibold text-white">Producto nuevo</p>
+            <p class="text-sm" style="color:rgba(255,255,255,0.5)">Seguro exclusivo para dispositivos reci&copy;n
+              adquiridos. Cobertura desde el primer día de compra.</p>
+          </div> <!-- Naranja: Sin deducible -->
+          <div class="rounded-[20px] p-7 flex flex-col gap-3" style="background:#FE5000">
+            <div class="w-10 h-10 rounded-xl flex items-center justify-center" style="background:rgba(255,255,255,0.2)">
+              <svg viewBox="0 0 24 24" fill="white" width="20" height="20">
+                <path
+                  d="M12 2L4 5.5V12c0 5 3.5 9.7 8 11 4.5-1.3 8-6 8-11V5.5L12 2zm-2 16l-4-4 1.41-1.41L10 15.17l6.59-6.59L18 10l-8 8z" />
+              </svg>
+            </div>
+            <p class="font-semibold text-white">Sin deducible</p>
+            <p class="text-sm" style="color:rgba(255,255,255,0.8)">En caso de siniestro el cliente no paga ningún costo
+              adicional.</p>
+          </div> <!-- Cambio de equipo -->
+          <div class="rounded-[20px] p-7 flex flex-col gap-3"
+            style="background:#120806;border:1px solid rgba(255,255,255,0.07)">
+            <div class="w-10 h-10 rounded-xl flex items-center justify-center" style="background:rgba(254,80,0,0.12)">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20" style="color:#FE5000">
+                <path
+                  d="M21 10.12h-6.78l2.74-2.82c-2.73-2.7-7.15-2.8-9.88-.1-2.73 2.71-2.73 7.08 0 9.79 2.73 2.71 7.15 2.71 9.88 0C18.32 15.65 19 14.08 19 12.1h2c0 1.98-.88 4.55-2.64 6.29-3.51 3.48-9.21 3.48-12.72 0-3.5-3.47-3.53-9.11-.02-12.58 3.51-3.47 9.14-3.47 12.65 0L21 3v7.12z" />
+              </svg>
+            </div>
+            <p class="font-semibold text-white">Cambio de equipo</p>
+            <p class="text-sm" style="color:rgba(255,255,255,0.5)">Permite cambiar el equipo asegurado en cualquier
+              momento de la vigencia.</p>
+          </div> <!-- 1-2 siniestros -->
+          <div class="rounded-[20px] p-7 flex flex-col gap-3"
+            style="background:#120806;border:1px solid rgba(255,255,255,0.07)">
+            <div class="w-10 h-10 rounded-xl flex items-center justify-center" style="background:rgba(254,80,0,0.12)">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20" style="color:#FE5000">
+                <path
+                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z" />
+              </svg>
+            </div>
+            <p class="font-semibold text-white">1–2 siniestros/año</p>
+            <p class="text-sm" style="color:rgba(255,255,255,0.5)">1 por daño accidental o mojadura + 1 por robo o
+              hurto, según la modalidad.</p>
+          </div> <!-- Precio de lista -->
+          <div class="rounded-[20px] p-7 flex flex-col gap-3"
+            style="background:#120806;border:1px solid rgba(255,255,255,0.07)">
+            <div class="w-10 h-10 rounded-xl flex items-center justify-center" style="background:rgba(254,80,0,0.12)">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20" style="color:#FE5000">
+                <path
+                  d="M19.5 3.5L18 2l-1.5 1.5L15 2l-1.5 1.5L12 2l-1.5 1.5L9 2 7.5 3.5 6 2 4.5 3.5 3 2v20l1.5-1.5L6 22l1.5-1.5L9 22l1.5-1.5L12 22l1.5-1.5L15 22l1.5-1.5L18 22l1.5-1.5L21 22V2l-1.5 1.5zM19 19.09H5V4.91h14v14.18z" />
+              </svg>
+            </div>
+            <p class="font-semibold text-white">Precio de lista</p>
+            <p class="text-sm" style="color:rgba(255,255,255,0.5)">Sin descuentos ocasionales. Se usa el precio oficial
+              del fabricante.</p>
+          </div>
         </div>
-        <div style="background:#fff; padding:24px; border-radius:24px; border:1px solid #e5e7eb;">
-          <h3 style="color:#070200; margin-top:0;">Garantía Extendida</h3>
-          <ul style="padding-left: 20px; font-size: 14px; color: #555;">
-            <li>Fallas técnicas tras garantía de Apple</li>
-            <li>Repuestos originales</li>
-            <li>Misma cobertura del fabricante</li>
-          </ul>
+      </div>
+    </section> <!-- Siniestro — fondo gris cálido -->
+    <section class="reveal py-10 px-4" style="background:#f5f5f7">
+      <div class="max-w-6xl mx-auto">
+        <p class="section-label mb-6">¿Qu&copy; sucede en caso de siniestro?</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-5">
+          <div class="flex gap-4 items-start p-5 rounded-[16px]" style="background:#fff;border:1px solid #e5e7eb">
+            <div
+              class="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0 text-sm font-semibold text-white"
+              style="background:linear-gradient(135deg,#FE5000,#c23d00)">01</div>
+            <div>
+              <p class="font-semibold text-sm mb-0.5" style="color:#070200">Declarar el siniestro</p>
+              <p class="text-xs leading-relaxed" style="color:#524C4A">A través de la app INSURAMA o el Espacio Cliente
+                web.</p>
+            </div>
+          </div>
+          <div class="flex gap-4 items-start p-5 rounded-[16px]" style="background:#fff;border:1px solid #e5e7eb">
+            <div
+              class="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0 text-sm font-semibold text-white"
+              style="background:linear-gradient(135deg,#FE5000,#c23d00)">02</div>
+            <div>
+              <p class="font-semibold text-sm mb-0.5" style="color:#070200">Adjuntar factura</p>
+              <p class="text-xs leading-relaxed" style="color:#524C4A">Factura o boleta de compra del equipo.</p>
+            </div>
+          </div>
+        </div>
+        <p class="text-xs font-medium uppercase tracking-wide mb-3" style="color:#818181">Documentación según el tipo de
+          siniestro</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-5">
+          <div class="p-5 rounded-[16px]" style="background:#fff;border:1.5px solid rgba(254,80,0,0.25)">
+            <p class="font-semibold text-sm mb-3" style="color:#FE5000">Daño accidental o mojadura</p>
+            <ul class="space-y-2">
+              <li class="flex items-start gap-2 text-xs" style="color:#524C4A"><span style="color:#FE5000">›</span>
+                Fotografías del equipo dañado</li>
+              <li class="flex items-start gap-2 text-xs" style="color:#524C4A"><span style="color:#FE5000">›</span>
+                Factura del equipo</li>
+            </ul>
+          </div>
+          <div class="p-5 rounded-[16px]" style="background:#fff;border:1.5px solid rgba(7,2,0,0.15)">
+            <p class="font-semibold text-sm mb-3" style="color:#070200">Robo o hurto</p>
+            <ul class="space-y-2">
+              <li class="flex items-start gap-2 text-xs" style="color:#524C4A"><span style="color:#524C4A">›</span>
+                Factura del equipo</li>
+              <li class="flex items-start gap-2 text-xs" style="color:#524C4A"><span style="color:#524C4A">›</span>
+                Denuncia policial</li>
+              <li class="flex items-start gap-2 text-xs" style="color:#524C4A"><span style="color:#524C4A">›</span>
+                Bloqueo de IMEI</li>
+            </ul>
+          </div>
+        </div>
+        <div class="flex items-center gap-3 p-4 rounded-[16px]"
+          style="background:#fff;border:1px solid rgba(254,80,0,0.2)"> <svg viewBox="0 0 24 24" fill="currentColor"
+            width="18" height="18" style="color:#FE5000;flex-shrink:0">
+            <path
+              d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+          </svg>
+          <p class="text-xs" style="color:#524C4A">Es imprescindible tener activa la <strong
+              style="color:#070200">geolocalización de la app INSURAMA</strong>.</p>
         </div>
       </div>
+    </section> <!-- Extensión de Garantía — fondo ámbar suave -->
+    <section class="reveal py-10 px-4" style="background:#fdf8f0;border-top:1px solid rgba(180,83,9,0.12)">
+      <div class="max-w-6xl mx-auto">
+        <div class="flex items-center gap-3 mb-6"> <span
+            class="px-3 py-1 rounded-full text-xs font-medium uppercase tracking-wide"
+            style="background:rgba(180,83,9,0.1);color:#B45309;border:1px solid rgba(180,83,9,0.2)">Extensión de
+            Garantía</span>
+          <div class="h-px flex-1" style="background:rgba(180,83,9,0.15)"></div>
+        </div>
+        <p class="section-label mb-6" style="color:#78350F">¿Cómo funciona la Extensión de Garantía?</p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-8">
+          <div class="p-5 rounded-[20px] flex gap-4 items-start"
+            style="background:#fff;border:1.5px solid rgba(180,83,9,0.15)">
+            <div class="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0"
+              style="background:rgba(180,83,9,0.1)"> <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"
+                style="color:#B45309">
+                <path
+                  d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z" />
+              </svg> </div>
+            <div>
+              <p class="font-semibold text-sm mb-1" style="color:#070200">Misma cobertura del fabricante</p>
+              <p class="text-xs leading-relaxed" style="color:#524C4A">Cubre averías y defectos cubiertos en la garantía
+                oficial.</p>
+            </div>
+          </div>
+          <div class="p-5 rounded-[20px] flex gap-4 items-start"
+            style="background:#fff;border:1.5px solid rgba(180,83,9,0.15)">
+            <div class="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0"
+              style="background:rgba(180,83,9,0.1)"> <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"
+                style="color:#B45309">
+                <path
+                  d="M21 10.12h-6.78l2.74-2.82c-2.73-2.7-7.15-2.8-9.88-.1-2.73 2.71-2.73 7.08 0 9.79 2.73 2.71 7.15 2.71 9.88 0C18.32 15.65 19 14.08 19 12.1h2c0 1.98-.88 4.55-2.64 6.29-3.51 3.48-9.21 3.48-12.72 0-3.5-3.47-3.53-9.11-.02-12.58 3.51-3.47 9.14-3.47 12.65 0L21 3v7.12z" />
+              </svg> </div>
+            <div>
+              <p class="font-semibold text-sm mb-1" style="color:#070200">Sustitución si no hay reparación</p>
+              <p class="text-xs leading-relaxed" style="color:#524C4A">Se reemplaza por un equipo de igual o similares
+                características.</p>
+            </div>
+          </div>
+          <div class="p-5 rounded-[20px] flex gap-4 items-start"
+            style="background:#fff;border:1.5px solid rgba(180,83,9,0.15)">
+            <div class="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0"
+              style="background:rgba(180,83,9,0.1)"> <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"
+                style="color:#B45309">
+                <path
+                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm.5 5H11v6l5.25 3.15.75-1.23-4.5-2.67V7z" />
+              </svg> </div>
+            <div>
+              <p class="font-semibold text-sm mb-1" style="color:#070200">Se activa al vencer la garantía oficial</p>
+              <p class="text-xs leading-relaxed" style="color:#524C4A">La cobertura entra en vigor al finalizar la
+                garantía del fabricante.</p>
+            </div>
+          </div>
+        </div>
+        <p class="section-label mb-4" style="color:#78350F">¿Qu&copy; sucede en caso de defecto de fábrica?</p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div class="flex gap-4 items-start p-5 rounded-[16px]"
+            style="background:#fff;border:1px solid rgba(180,83,9,0.15)">
+            <div
+              class="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0 text-sm font-semibold text-white"
+              style="background:linear-gradient(135deg,#B45309,#78350F)">01</div>
+            <div>
+              <p class="font-semibold text-sm mb-0.5" style="color:#070200">Declarar el defecto</p>
+              <p class="text-xs leading-relaxed" style="color:#524C4A">App INSURAMA o Espacio Cliente web.</p>
+            </div>
+          </div>
+          <div class="flex gap-4 items-start p-5 rounded-[16px]"
+            style="background:#fff;border:1px solid rgba(180,83,9,0.15)">
+            <div
+              class="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0 text-sm font-semibold text-white"
+              style="background:linear-gradient(135deg,#B45309,#78350F)">02</div>
+            <div>
+              <p class="font-semibold text-sm mb-0.5" style="color:#070200">Adjuntar documentos</p>
+              <p class="text-xs leading-relaxed" style="color:#524C4A">Factura de compra + certificado de garantía
+                original del fabricante.</p>
+            </div>
+          </div>
+          <div class="flex gap-4 items-start p-5 rounded-[16px]"
+            style="background:#fff;border:1px solid rgba(180,83,9,0.15)">
+            <div
+              class="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0 text-sm font-semibold text-white"
+              style="background:linear-gradient(135deg,#B45309,#78350F)">03</div>
+            <div>
+              <p class="font-semibold text-sm mb-0.5" style="color:#070200">Resolución</p>
+              <p class="text-xs leading-relaxed" style="color:#524C4A">Reparación o sustitución del equipo si no hay
+                reparación posible.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section> <!-- Proceso de Facturación UNIFICADO — fondo naranja muy suave -->
+    <section class="reveal py-10 px-4" style="background:#fff7f3;border-top:1px solid rgba(254,80,0,0.1)">
+      <div class="max-w-6xl mx-auto">
+        <p class="section-label mb-2">Proceso de facturación</p>
+        <p class="text-xs mb-6" style="color:#818181">Aplica para Seguros y Extensión de Garantía</p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-5">
+          <div class="p-6 rounded-[20px]" style="background:#fff;border:1.5px solid rgba(254,80,0,0.15)">
+            <p class="text-xs font-medium uppercase tracking-widest mb-3" style="color:#818181">Paso 01</p>
+            <p class="font-semibold text-sm mb-1" style="color:#070200">Precio de lista</p>
+            <p class="text-xs leading-relaxed" style="color:#524C4A">Usa el precio oficial del fabricante, sin
+              descuentos ocasionales.</p>
+          </div>
+          <div class="p-6 rounded-[20px]" style="background:#fff;border:1.5px solid rgba(254,80,0,0.15)">
+            <p class="text-xs font-medium uppercase tracking-widest mb-3" style="color:#818181">Paso 02</p>
+            <p class="font-semibold text-sm mb-1" style="color:#070200">Valor en portal</p>
+            <p class="text-xs leading-relaxed" style="color:#524C4A">El valor de la póliza en el portal distribuidor
+              debe coincidir con el cobrado en factura.</p>
+          </div>
+          <div class="p-6 rounded-[20px]" style="background:#fff;border:1.5px solid rgba(254,80,0,0.15)">
+            <p class="text-xs font-medium uppercase tracking-widest mb-3" style="color:#818181">Paso 03</p>
+            <p class="font-semibold text-sm mb-1" style="color:#070200">Plan correcto</p>
+            <p class="text-xs leading-relaxed" style="color:#524C4A">El plan seleccionado en el portal debe ser el
+              contratado por el cliente.</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-3 p-4 rounded-[16px]"
+          style="background:#fff;border:1px solid rgba(254,80,0,0.2)"> <svg viewBox="0 0 24 24" fill="currentColor"
+            width="18" height="18" style="color:#FE5000;flex-shrink:0">
+            <path
+              d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z" />
+          </svg>
+          <p class="text-xs" style="color:#524C4A">La verificación correcta garantiza la validez inmediata de la
+            cobertura en caso de siniestro.</p>
+        </div>
+      </div>
+    </section>
+  </div> <!-- TAB: CONTACTO -->
+  <div id="tab-contacto" class="tab-content">
+    <section class="max-w-6xl mx-auto px-4 py-10">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6"> <!-- Clientes -->
+        <div class="reveal card-hover rounded-[24px] overflow-hidden"
+          style="background:#fff;box-shadow:0 4px 24px rgba(0,0,0,0.07);border:1px solid #f0f0f0">
+          <div class="h-1" style="background:linear-gradient(90deg,#FE5000,#c23d00)"></div>
+          <div class="p-6 md:p-8">
+            <div class="flex items-center gap-3 mb-7">
+              <div class="w-10 h-10 rounded-xl flex items-center justify-center" style="background:rgba(254,80,0,0.1)">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20" style="color:#FE5000">
+                  <path
+                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z" />
+                </svg>
+              </div>
+              <h3 class="font-semibold text-lg" style="color:#070200">Contacto para Clientes</h3>
+            </div>
+            <ul class="space-y-5">
+              <li class="flex items-center gap-4"> <span
+                  class="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0"
+                  style="background:rgba(254,80,0,0.08)"> <svg viewBox="0 0 24 24" fill="currentColor" width="17"
+                    height="17" style="color:#FE5000">
+                    <path
+                      d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" />
+                  </svg> </span>
+                <div>
+                  <p class="text-[10px] font-semibold uppercase tracking-widest mb-0.5" style="color:#818181">Espacio
+                    Cliente</p> <a href="https://cliente.insurama.cr" target="_blank"
+                    class="text-sm font-medium transition-colors hover:text-brand"
+                    style="color:#070200">https://cliente.insurama.cr</a>
+                </div>
+              </li>
+              <li class="flex items-center gap-4"> <span
+                  class="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0"
+                  style="background:rgba(254,80,0,0.08)"> <svg viewBox="0 0 24 24" fill="currentColor" width="17"
+                    height="17" style="color:#FE5000">
+                    <path
+                      d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+                  </svg> </span>
+                <div>
+                  <p class="text-[10px] font-semibold uppercase tracking-widest mb-0.5" style="color:#818181">Correo
+                    Electrónico</p> <a href="mailto:clientes@insurama.cr"
+                    class="text-sm font-medium transition-colors hover:text-brand"
+                    style="color:#070200">clientes@insurama.cr</a>
+                </div>
+              </li>
+              <li class="flex items-center gap-4"> <span
+                  class="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0"
+                  style="background:rgba(254,80,0,0.08)"> <svg viewBox="0 0 24 24" fill="currentColor" width="17"
+                    height="17" style="color:#FE5000">
+                    <path
+                      d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+                  </svg> </span>
+                <div>
+                  <p class="text-[10px] font-semibold uppercase tracking-widest mb-0.5" style="color:#818181">Correo
+                    Electrónico</p> <a href="mailto:dispositivosCR@assanet.com"
+                    class="text-sm font-medium transition-colors hover:text-brand"
+                    style="color:#070200">dispositivosCR@assanet.com</a>
+                </div>
+              </li>
+              <li class="flex items-center gap-4"> <span
+                  class="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0"
+                  style="background:rgba(254,80,0,0.08)"> <svg viewBox="0 0 24 24" fill="currentColor" width="17"
+                    height="17" style="color:#FE5000">
+                    <path
+                      d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+                  </svg> </span>
+                <div>
+                  <p class="text-[10px] font-semibold uppercase tracking-widest mb-0.5" style="color:#818181">Atención a
+                    cliente</p>
+                  <p class="text-sm font-medium" style="color:#070200">(506) 4010-4293</p>
+                </div>
+              </li>
+              <li class="flex items-center gap-4"> <span
+                  class="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0"
+                  style="background:rgba(254,80,0,0.08)"> <svg viewBox="0 0 24 24" fill="currentColor" width="17"
+                    height="17" style="color:#FE5000">
+                    <path
+                      d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+                  </svg> </span>
+                <div>
+                  <p class="text-[10px] font-semibold uppercase tracking-widest mb-0.5" style="color:#818181">Atención a
+                    cliente</p>
+                  <p class="text-sm font-medium" style="color:#070200">(506) 2503-2704</p>
+                </div>
+              </li>
+              <li class="flex items-center gap-4"> <span
+                  class="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0"
+                  style="background:rgba(254,80,0,0.08)"> <svg viewBox="0 0 24 24" fill="currentColor" width="17"
+                    height="17" style="color:#FE5000">
+                    <path
+                      d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.528 5.855L0 24l6.335-1.508A11.942 11.942 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.885 0-3.65-.497-5.18-1.367l-.371-.22-3.762.895.952-3.667-.241-.381A9.935 9.935 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z" />
+                  </svg> </span>
+                <div>
+                  <p class="text-[10px] font-semibold uppercase tracking-widest mb-0.5" style="color:#818181">WhatsApp
+                  </p> <a href="https://wa.me/50625032772" target="_blank"
+                    class="text-sm font-medium transition-colors hover:text-brand" style="color:#070200">(506)
+                    2503-2772</a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div> <!-- Tiendas -->
+        <div class="reveal stagger-1 card-hover rounded-[24px] overflow-hidden"
+          style="background:#fff;box-shadow:0 4px 24px rgba(0,0,0,0.07);border:1px solid #f0f0f0">
+          <div class="h-1" style="background:linear-gradient(90deg,#524C4A,#070200)"></div>
+          <div class="p-6 md:p-8">
+            <div class="flex items-center gap-3 mb-7">
+              <div class="w-10 h-10 rounded-xl flex items-center justify-center" style="background:rgba(7,2,0,0.07)">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20" style="color:#524C4A">
+                  <path d="M20 4H4v2h16V4zm1 10v-2l-1-5H4l-1 5v2h1v6h10v-6h4v6h2v-6h1zm-9 4H6v-4h6v4z" />
+                </svg>
+              </div>
+              <h3 class="font-semibold text-lg" style="color:#070200">Contacto para Tiendas</h3>
+            </div>
+            <ul class="space-y-5">
+              <li class="flex items-center gap-4"> <span
+                  class="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0"
+                  style="background:rgba(7,2,0,0.06)"> <svg viewBox="0 0 24 24" fill="currentColor" width="17"
+                    height="17" style="color:#524C4A">
+                    <path
+                      d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-6v-2H9l3-4 3 4h-2v2h-2z" />
+                  </svg> </span>
+                <div>
+                  <p class="text-[10px] font-semibold uppercase tracking-widest mb-0.5" style="color:#818181">Portal
+                    Insurama</p> <a href="https://distribuidor.insurama.cr" target="_blank"
+                    class="text-sm font-medium transition-colors" style="color:#070200"
+                    onmouseover="this.style.color='#FE5000'"
+                    onmouseout="this.style.color='#070200'">https://distribuidor.insurama.cr</a>
+                </div>
+              </li>
+              <li class="flex items-center gap-4"> <span
+                  class="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0"
+                  style="background:rgba(7,2,0,0.06)"> <svg viewBox="0 0 24 24" fill="currentColor" width="17"
+                    height="17" style="color:#524C4A">
+                    <path
+                      d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+                  </svg> </span>
+                <div>
+                  <p class="text-[10px] font-semibold uppercase tracking-widest mb-0.5" style="color:#818181">Atención a
+                    tiendas</p>
+                  <p class="text-sm font-medium" style="color:#070200">(506) 7037 - 4257</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div> <!-- ===== FOOTER ===== -->
+  <footer class="mt-auto py-10 text-center" style="background:#0a0a0f">
+    <div class="max-w-6xl mx-auto px-4">
+      <p class="text-sm" style="color:#524C4A">&copy; 2026 Insurama. Todos los derechos reservados.</p>
     </div>
-  </div>
-
+  </footer>
   <script>
-    var DB = {
+    function showTab(name, btn) {
+      document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.getElementById('tab-' + name).classList.add('active');
+      if (btn) btn.classList.add('active');
+    }
+
+    const DB = {
       iphone: {
-        ranges: [[250,450],[450,650],[650,900],[900,1250],[1250,1625],[1625,2000],[2000,2375],[2375,3000]],
-        todoRiesgo: { 12: [80,130,185,195,280,355,430,520], 18: [115,180,255,275,395,495,600,730], 24: [130,205,290,310,450,565,690,835] },
-        roboHurto: { 12: [40,64,90,95,140,175,210,255], 18: [55,90,125,135,195,245,295,360], 24: [65,105,140,150,220,280,340,410] }
+        ranges: [[250, 450], [450, 650], [650, 900], [900, 1250], [1250, 1625], [1625, 2000], [2000, 2375], [2375, 3000]],
+        todoRiesgo: {
+          12: [80, 130, 185, 195, 280, 355, 430, 520],
+          18: [115, 180, 255, 275, 395, 495, 600, 730],
+          24: [130, 205, 290, 310, 450, 565, 690, 835]
+        },
+        roboHurto: {
+          12: [40, 64, 90, 95, 140, 175, 210, 255],
+          18: [55, 90, 125, 135, 195, 245, 295, 360],
+          24: [65, 105, 140, 150, 220, 280, 340, 410]
+        }
       },
       ipad: {
-        ranges: [[250,450],[450,650],[650,900],[900,1250],[1250,1625],[1625,2000],[2000,2375],[2375,2625],[2625,2875],[2875,3125],[3125,3500],[3500,3875],[3875,5000]],
-        todoRiesgo: { 12: [50,80,110,130,170,210,260,295,325,350,390,435,570], 18: [70,110,155,185,235,300,360,410,450,495,545,605,800], 24: [80,125,175,210,270,340,410,470,515,565,620,690,915] },
-        roboHurto: { 12: [25,40,55,65,85,105,125,145,160,175,190,210,285], 18: [35,55,75,90,116,145,175,200,220,240,265,295,400], 24: [40,60,85,100,135,170,200,230,255,275,305,340,455] }
+        ranges: [[250, 450], [450, 650], [650, 900], [900, 1250], [1250, 1625], [1625, 2000], [2000, 2375], [2375, 2625], [2625, 2875], [2875, 3125], [3125, 3500], [3500, 3875], [3875, 5000]],
+        todoRiesgo: {
+          12: [50, 80, 110, 130, 170, 210, 260, 295, 325, 350, 390, 435, 570],
+          18: [70, 110, 155, 185, 235, 300, 360, 410, 450, 495, 545, 605, 800],
+          24: [80, 125, 175, 210, 270, 340, 410, 470, 515, 565, 620, 690, 915]
+        },
+        roboHurto: {
+          12: [25, 40, 55, 65, 85, 105, 125, 145, 160, 175, 190, 210, 285],
+          18: [35, 55, 75, 90, 116, 145, 175, 200, 220, 240, 265, 295, 400],
+          24: [40, 60, 85, 100, 135, 170, 200, 230, 255, 275, 305, 340, 455]
+        }
       },
       mac: {
-        ranges: [[500,800],[800,1000],[1000,1500],[1500,2000],[2000,2500],[2500,4250],[4250,5000],[5000,6250]],
-        todoRiesgo: { 12: [70,95,130,215,280,355,510,615], 18: [95,130,180,305,390,500,710,865], 24: [110,150,210,345,450,570,810,985] },
-        danoAccidental: { 12: [45,60,75,130,155,195,280,340], 18: [65,85,110,180,215,275,390,475], 24: [70,100,125,210,245,310,445,540] }
+        ranges: [[500, 800], [800, 1000], [1000, 1500], [1500, 2000], [2000, 2500], [2500, 4250], [4250, 5000], [5000, 6250]],
+        todoRiesgo: {
+          12: [70, 95, 130, 215, 280, 355, 510, 615],
+          18: [95, 130, 180, 305, 390, 500, 710, 865],
+          24: [110, 150, 210, 345, 450, 570, 810, 985]
+        },
+        danoAccidental: {
+          12: [45, 60, 75, 130, 155, 195, 280, 340],
+          18: [65, 85, 110, 180, 215, 275, 390, 475],
+          24: [70, 100, 125, 210, 245, 310, 445, 540]
+        }
       },
       watch: {
-        ranges: [[250,450],[450,650],[650,900],[900,1150],[1150,1400]],
-        todoRiesgo: { 12: [45,70,95,110,130], 18: [60,95,135,155,185], 24: [70,110,155,175,210] },
-        roboHurto: { 12: [15,25,35,45,55], 18: [20,30,45,60,75], 24: [25,40,50,70,85] }
+        ranges: [[250, 450], [450, 650], [650, 900], [900, 1150], [1150, 1400]],
+        todoRiesgo: {
+          12: [45, 70, 95, 110, 130],
+          18: [60, 95, 135, 155, 185],
+          24: [70, 110, 155, 175, 210]
+        },
+        roboHurto: {
+          12: [15, 25, 35, 45, 55],
+          18: [20, 30, 45, 60, 75],
+          24: [25, 40, 50, 70, 85]
+        }
       }
     };
 
-    var EXT_GARANTIA = {
-      ranges: [[0,50],[50,100],[100,250],[250,500],[500,1000],[1000,1500],[1500,2000],[2000,2500],[2500,3000],[3000,5001]],
-      celulares: { 12: [null,null,13.33,26.67,33.33,40.00,46.67,50.00,null,null], 24: [null,null,20.00,40.00,50.00,60.00,70.00,75.00,null,null] },
-      resto: { 36: [6.00,10.00,20.00,40.00,50.00,60.00,70.00,75.00,85.00,110.00] }
+    const EXT_GARANTIA = {
+      ranges: [[0, 50], [50, 100], [100, 250], [250, 500], [500, 1000], [1000, 1500], [1500, 2000], [2000, 2500], [2500, 3000], [3000, 5001]],
+      celulares: {
+        12: [null, null, 13.33, 26.67, 33.33, 40.00, 46.67, 50.00, null, null],
+        24: [null, null, 20.00, 40.00, 50.00, 60.00, 70.00, 75.00, null, null]
+      },
+      resto: {
+        36: [6.00, 10.00, 20.00, 40.00, 50.00, 60.00, 70.00, 75.00, 85.00, 110.00]
+      }
     };
 
-    var currentDevice = 'iphone';
-    
-    function showTab(name, btn) {
-      var tabs = document.querySelectorAll('.tab-content');
-      var buttons = document.querySelectorAll('.tab-btn');
-      for (var i = 0; i < tabs.length; i++) tabs[i].classList.remove('active');
-      for (var j = 0; j < buttons.length; j++) buttons[j].classList.remove('active');
-      document.getElementById('tab-' + name).classList.add('active');
-      btn.classList.add('active');
-    }
+    let currentDevice = 'iphone';
+    let showMonthly = false;
 
     function selectDevice(dev) {
       currentDevice = dev;
-      var buttons = document.querySelectorAll('.device-btn');
-      for (var i = 0; i < buttons.length; i++) buttons[i].classList.toggle('active', buttons[i].getAttribute('data-dev') === dev);
+      document.querySelectorAll('.device-btn').forEach(function (b) {
+        b.classList.toggle('active', b.dataset.dev === dev);
+        if (b.dataset.dev !== dev) b.classList.add('text-dark-400');
+        else b.classList.remove('text-dark-400');
+      });
+      calculate();
+    }
+
+    function toggleMonthly() {
+      showMonthly = !showMonthly;
+      document.getElementById('monthlyToggle').classList.toggle('on', showMonthly);
       calculate();
     }
 
     function findRange(ranges, value) {
-      for (var i = 0; i < ranges.length; i++) if (value >= ranges[i][0] && value < ranges[i][1]) return i;
+      for (var i = 0; i < ranges.length; i++) {
+        if (value >= ranges[i][0] && value < ranges[i][1]) return i;
+      }
       return -1;
     }
 
-    function buildCard(title, plans) {
-      var html = '<div class="fade-in" style="background:#fff; border:1px solid #e5e7eb; border-radius:24px; padding:24px; box-shadow:0 8px 30px rgba(0,0,0,0.05);">';
-      html += '<h3 style="margin-top:0; color:#FE5000; font-size:18px;">' + title + '</h3>';
-      for (var i = 0; i < plans.length; i++) {
-        var p = plans[i];
-        html += '<div style="display:flex; justify-content:space-between; align-items:center; background:#f8f8f8; padding:12px; border-radius:12px; margin-bottom:8px;">';
-        html += '<span style="font-size:12px; font-weight:600;">' + p.m + ' meses</span>';
-        html += '<span style="font-size:16px; font-weight:700; color:#070200">$' + p.p.toFixed(2) + '</span>';
-        html += '</div>';
-      }
-      html += '</div>';
-      return html;
+    function fmt(n) { return '$' + n.toFixed(2); }
+
+    const CARD_THEMES = {
+      'Todo Riesgo': { borderColor: 'rgba(254,80,0,0.25)', headerGrad: 'linear-gradient(135deg,#FE5000 0%,#c23d00 100%)', accentBg: '#FE5000', lightBg: 'rgba(254,80,0,0.07)', highlightBorder: 'rgba(254,80,0,0.35)', iconColor: '#FE5000', shadowColor: 'rgba(254,80,0,0.1)' },
+      'Robo y Hurto': { borderColor: 'rgba(7,2,0,0.18)', headerGrad: 'linear-gradient(135deg,#524C4A 0%,#070200 100%)', accentBg: '#070200', lightBg: 'rgba(7,2,0,0.05)', highlightBorder: 'rgba(7,2,0,0.22)', iconColor: '#070200', shadowColor: 'rgba(7,2,0,0.1)' },
+      'Daño Accidental': { borderColor: 'rgba(7,2,0,0.18)', headerGrad: 'linear-gradient(135deg,#524C4A 0%,#070200 100%)', accentBg: '#070200', lightBg: 'rgba(7,2,0,0.05)', highlightBorder: 'rgba(7,2,0,0.22)', iconColor: '#070200', shadowColor: 'rgba(7,2,0,0.1)' },
+      'Ext. Garantia': { borderColor: 'rgba(180,83,9,0.2)', headerGrad: 'linear-gradient(135deg,#B45309 0%,#78350F 100%)', accentBg: '#92400E', lightBg: 'rgba(180,83,9,0.06)', highlightBorder: 'rgba(180,83,9,0.28)', iconColor: '#92400E', shadowColor: 'rgba(180,83,9,0.08)' }
+    };
+
+    const CARD_SVGS = {
+      'Todo Riesgo': '<svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M12 2L4 5.5V12c0 5 3.5 9.7 8 11 4.5-1.3 8-6 8-11V5.5L12 2z"/></svg>',
+      'Robo y Hurto': '<svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/></svg>',
+      'Daño Accidental': '<svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>',
+      'Ext. Garantia': '<svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>'
+    };
+
+    function buildCard(title, desc, recommended, plans) {
+      var t = CARD_THEMES[title] || CARD_THEMES['Todo Riesgo'];
+      var svg = CARD_SVGS[title] || CARD_SVGS['Todo Riesgo'];
+
+      var recBadge = recommended
+        ? '<div style="display:inline-flex;align-items:center;gap:5px;background:' + t.accentBg + ';color:white;font-size:10px;font-weight:500;padding:5px 12px;border-radius:20px;letter-spacing:0.08em;text-transform:uppercase;"><svg viewBox="0 0 24 24" fill="currentColor" width="10" height="10"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>Mas Completo</div>'
+        : '';
+
+      var plansHtml = plans.map(function (p, i) {
+        var total = p.p;
+        var monthly = total / p.m;
+        var isHighlight = recommended ? (i === 2) : (title === 'Ext. Garantia' ? (i === plans.length - 1) : (i === 0));
+        var rowBg = isHighlight ? t.lightBg : '#f8f8f8';
+        var rowBorder = isHighlight ? t.highlightBorder : '#e5e7eb';
+        var priceColor = isHighlight ? t.iconColor : '#070200';
+        var periodLabel = p.m === 12 ? '12 meses' : p.m === 18 ? '18 meses' : p.m === 24 ? '24 meses' : '36 meses';
+        var priceDisplay = showMonthly
+          ? '<div style="text-align:right"><span style="font-size:20px;font-weight:600;color:' + priceColor + ';line-height:1">' + fmt(monthly) + '</span><span style="font-size:11px;font-weight:400;color:#818181">/mes</span><div style="font-size:10px;color:#818181;margin-top:2px">Total: ' + fmt(total) + '</div></div>'
+          : '<div style="text-align:right"><span style="font-size:20px;font-weight:600;color:' + priceColor + ';line-height:1">' + fmt(total) + '</span></div>';
+        var highlight = isHighlight ? '<div style="font-size:10px;font-weight:500;color:' + t.iconColor + ';margin-top:2px;text-transform:uppercase;letter-spacing:0.06em">Recomendado</div>' : '';
+        return '<div style="display:flex;align-items:center;justify-content:space-between;background:' + rowBg + ';border:1.5px solid ' + rowBorder + ';border-radius:12px;padding:12px 14px;"><div><div style="font-size:12px;font-weight:500;color:#070200;letter-spacing:0.01em">' + periodLabel + '</div>' + highlight + '</div>' + priceDisplay + '</div>';
+      }).join('');
+
+      var extraClass = recommended ? 'recommended-pulse' : '';
+      return '<div class="reveal card-hover ' + extraClass + '" style="background:#fff;border:1.5px solid ' + t.borderColor + ';border-radius:24px;overflow:hidden;display:flex;flex-direction:column;height:100%;box-shadow:0 8px 32px ' + t.shadowColor + '">'
+        + '<div style="' + t.headerGrad.replace('linear-gradient', 'background:linear-gradient') + ';padding:20px 22px;">'
+        + '<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:' + (recBadge ? '12px' : '0') + '">'
+        + '<div style="display:flex;align-items:center;gap:12px;">'
+        + '<div style="background:rgba(255,255,255,0.18);border-radius:10px;padding:8px;color:white;">' + svg + '</div>'
+        + '<div><div style="color:white;font-weight:600;font-size:15px">' + title + '</div>'
+        + '<div style="color:rgba(255,255,255,0.72);font-size:10px;text-transform:uppercase;letter-spacing:0.1em;margin-top:2px">' + desc + '</div>'
+        + '</div></div></div>' + recBadge + '</div>'
+        + '<div style="padding:16px;display:flex;flex-direction:column;gap:8px;flex:1;">' + plansHtml + '</div>'
+        + '</div>';
     }
 
     function calculate() {
       var val = parseFloat(document.getElementById('priceInput').value);
       var container = document.getElementById('cardsContainer');
       var rangeInd = document.getElementById('rangeIndicator');
-      
+
       if (!val || val <= 0) {
         container.innerHTML = '';
         rangeInd.classList.add('hidden');
         return;
       }
 
-      var data = DB[currentDevice];
+      var cards = [];
+      var dev = currentDevice;
+      var data = DB[dev];
       var rangeIdx = findRange(data.ranges, val);
-      
+
       if (rangeIdx >= 0) {
         rangeInd.classList.remove('hidden');
-        document.getElementById('rangeText').textContent = 'Rango: $' + data.ranges[rangeIdx][0] + ' - $' + data.ranges[rangeIdx][1];
-        
-        var cards = [];
+        document.getElementById('rangeText').textContent = 'Rango detectado: $' + data.ranges[rangeIdx][0] + ' - $' + data.ranges[rangeIdx][1];
+
         var tr = data.todoRiesgo;
-        cards.push(buildCard('Todo Riesgo', [{m:12, p:tr[12][rangeIdx]}, {m:18, p:tr[18][rangeIdx]}, {m:24, p:tr[24][rangeIdx]}]));
-        
-        if (currentDevice === 'mac') {
+        cards.push(buildCard('Todo Riesgo', 'Dano Accidental + Robo + Hurto', true,
+          [{ m: 12, p: tr[12][rangeIdx] }, { m: 18, p: tr[18][rangeIdx] }, { m: 24, p: tr[24][rangeIdx] }]));
+
+        if (dev === 'mac') {
           var da = data.danoAccidental;
-          cards.push(buildCard('Daño Accidental', [{m:12, p:da[12][rangeIdx]}, {m:18, p:da[18][rangeIdx]}, {m:24, p:da[24][rangeIdx]}]));
+          cards.push(buildCard('Daño Accidental', 'Cobertura por dano accidental', false,
+            [{ m: 12, p: da[12][rangeIdx] }, { m: 18, p: da[18][rangeIdx] }, { m: 24, p: da[24][rangeIdx] }]));
         } else {
           var rh = data.roboHurto;
-          cards.push(buildCard('Robo y Hurto', [{m:12, p:rh[12][rangeIdx]}, {m:18, p:rh[18][rangeIdx]}, {m:24, p:rh[24][rangeIdx]}]));
+          cards.push(buildCard('Robo y Hurto', 'Proteccion contra sustraccion del equipo', false,
+            [{ m: 12, p: rh[12][rangeIdx] }, { m: 18, p: rh[18][rangeIdx] }, { m: 24, p: rh[24][rangeIdx] }]));
         }
 
-        var egIdx = findRange(EXT_GARANTIA.ranges, val);
-        if (egIdx >= 0) {
-          if (currentDevice === 'iphone') {
+        var egRangeIdx = findRange(EXT_GARANTIA.ranges, val);
+        if (egRangeIdx >= 0) {
+          if (dev === 'iphone') {
+            var eg12 = EXT_GARANTIA.celulares[12][egRangeIdx];
+            var eg24 = EXT_GARANTIA.celulares[24][egRangeIdx];
             var egPlans = [];
-            if (EXT_GARANTIA.celulares[12][egIdx]) egPlans.push({m:12, p:EXT_GARANTIA.celulares[12][egIdx]});
-            if (EXT_GARANTIA.celulares[24][egIdx]) egPlans.push({m:24, p:EXT_GARANTIA.celulares[24][egIdx]});
-            if (egPlans.length > 0) cards.push(buildCard('Ext. Garantía', egPlans));
-          } else if (EXT_GARANTIA.resto[36][egIdx]) {
-            cards.push(buildCard('Ext. Garantía', [{m:36, p:EXT_GARANTIA.resto[36][egIdx]}]));
+            if (eg12 !== null) egPlans.push({ m: 12, p: eg12 });
+            if (eg24 !== null) egPlans.push({ m: 24, p: eg24 });
+            if (egPlans.length > 0) cards.push(buildCard('Ext. Garantia', 'Extension de garantia del fabricante', false, egPlans));
+          } else {
+            var eg36 = EXT_GARANTIA.resto[36][egRangeIdx];
+            if (eg36 !== null) cards.push(buildCard('Ext. Garantia', 'Extension de garantia del fabricante', false, [{ m: 36, p: eg36 }]));
           }
         }
-        container.innerHTML = cards.join('');
       } else {
         rangeInd.classList.remove('hidden');
-        document.getElementById('rangeText').textContent = 'Valor fuera de rango';
-        container.innerHTML = '';
+        document.getElementById('rangeText').textContent = 'Valor fuera de rango. Rango valido: $' + data.ranges[0][0] + ' - $' + data.ranges[data.ranges.length - 1][1];
+      }
+
+      if (cards.length === 0) {
+        container.innerHTML = '<div class="rounded-[20px] p-10 text-center col-span-full" style="background:#fff;border:1px solid #f0f0f0"><p class="font-medium" style="color:#070200">No se encontraron planes para este valor</p><p class="text-xs mt-1" style="color:#524C4A">Verifica el precio de lista del equipo</p></div>';
+      } else {
+        container.innerHTML = cards.join('');
+        setTimeout(function () { container.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('visible'); }); }, 50);
       }
     }
+
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.reveal').forEach(function (el) { observer.observe(el); });
+
+    window.addEventListener('scroll', function () {
+      document.querySelector('header').classList.toggle('scrolled', window.scrollY > 10);
+    }, { passive: true });
   </script>
 </body>
+
 </html>
