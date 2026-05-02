@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 -c ' *)",
+      "PowerShell(python \"c:/Users/danny/Desktop/insurama/validate_db.py\" 2>&1)"
+    ]
+  }
+}

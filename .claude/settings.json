@@ -1,0 +1,29 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node -e ' *)",
+      "WebFetch(domain:insurama.com)",
+      "PowerShell(Get-ChildItem \"C:\\\\Users\\\\danny\\\\Desktop\\\\insurama\\\\\" | Select-Object Name, @{N='KB';E={[math]::Round\\($_.Length/1KB,1\\)}})",
+      "PowerShell(\\(Get-Content \"C:\\\\Users\\\\danny\\\\Desktop\\\\insurama\\\\insurama.html\"\\)[\\(448\\)..\\(456\\)] -join \"`n\")",
+      "Bash(npm --version)",
+      "Bash(npx tailwindcss *)",
+      "Bash(npx --yes tailwindcss@3 -c tailwind.config.js --content ../insurama.html -o output.css --minify)",
+      "Bash(npx tailwindcss@3 -c tailwind.config.js --content ../insurama.html -o output.css --minify)",
+      "Bash(npx tailwindcss@3 --input empty.css --output output2.css --content \"/c/Users/danny/Desktop/insurama/insurama.html\" --minify)",
+      "Bash(npx tailwindcss@3 --input empty.css --output test.css --content \"./test.html\" --minify)",
+      "Bash(npx tailwindcss@3 --output test2.css --content \"./test.html\" --minify)",
+      "Read(//c/c/Users/danny/Desktop/insurama/_tw/**)",
+      "Bash(grep -v '^class$')",
+      "Bash(grep -v '^$')",
+      "Bash(npx tailwindcss@3 -c safelist.config.js --output safelist.css --minify)",
+      "PowerShell($content = Get-Content \"c:\\\\Users\\\\danny\\\\Desktop\\\\insurama\\\\insurama.html\" -Raw; $content.Length)",
+      "PowerShell($content = Get-Content \"c:\\\\Users\\\\danny\\\\Desktop\\\\insurama\\\\insurama.html\" -Raw; @{ \"addEventListener calls\" = [regex]::Matches\\($content, 'addEventListener', [System.Text.RegularExpressions.RegexOptions]::IgnoreCase\\).Count; \"onclick handlers\" = [regex]::Matches\\($content, 'onclick=', [System.Text.RegularExpressions.RegexOptions]::IgnoreCase\\).Count; \"oninput handlers\" = [regex]::Matches\\($content, 'oninput=', [System.Text.RegularExpressions.RegexOptions]::IgnoreCase\\).Count; \"const declarations\" = [regex]::Matches\\($content, '\\\\bconst\\\\s+', [System.Text.RegularExpressions.RegexOptions]::IgnoreCase\\).Count; \"let declarations\" = [regex]::Matches\\($content, '\\\\blet\\\\s+', [System.Text.RegularExpressions.RegexOptions]::IgnoreCase\\).Count })",
+      "PowerShell($content = Get-Content \"c:\\\\Users\\\\danny\\\\Desktop\\\\insurama\\\\insurama.html\" -Raw; @{ \"DOMContentLoaded\" = [regex]::Matches\\($content, 'DOMContentLoaded', [System.Text.RegularExpressions.RegexOptions]::IgnoreCase\\).Count; \"window.onload\" = [regex]::Matches\\($content, 'window\\\\.onload', [System.Text.RegularExpressions.RegexOptions]::IgnoreCase\\).Count; \"script at end of body\" = if\\($content -match '</body>'\\) { \"yes\" } else { \"no\" } })",
+      "PowerShell($content = Get-Content \"c:\\\\Users\\\\danny\\\\Desktop\\\\insurama\\\\insurama.html\" -Raw; $scriptPos = $content.LastIndexOf\\('<script'\\); $bodyEndPos = $content.LastIndexOf\\('</body>'\\); if\\($scriptPos -gt $bodyEndPos\\) { \"Script is AFTER body closing tag\" } elseif\\($scriptPos -gt \\($bodyEndPos - 5000\\)\\) { \"Script is near end of body \\(within last 5000 chars\\)\" } else { \"Script is earlier in body\" })",
+      "PowerShell($content = Get-Content \"c:\\\\Users\\\\danny\\\\Desktop\\\\insurama\\\\insurama.html\" -Raw; $lines = $content.Split\\(\"`n\"\\); $scriptLineNum = -1; for\\($i = 0; $i -lt $lines.Length; $i++\\) { if\\($lines[$i] -match '<script'\\) { $scriptLineNum = $i + 1; break } }; \"Script tag starts at line: $scriptLineNum\"; \"Total lines: $\\($lines.Length\\)\")"
+    ],
+    "additionalDirectories": [
+      "C:\\Users\\danny\\Desktop\\insurama"
+    ]
+  }
+}
