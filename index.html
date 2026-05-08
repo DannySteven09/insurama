@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 
 <head>
@@ -1244,8 +1244,8 @@
             <div class="flex items-center justify-between py-4 px-5 rounded-xl"
               style="background:#f5f5f7;border:1.5px solid #e5e7eb">
               <div>
-                <p class="text-xs font-medium uppercase tracking-wide mb-0.5" style="color:#524C4A">Cuota Mensual</p>
-                <p class="text-[10px]" style="color:#818181">Ver precio por mes</p>
+                <p class="text-xs font-medium uppercase tracking-wide mb-0.5" style="color:#524C4A">Cuota Total</p>
+                <p class="text-[10px]" style="color:#818181">Ver precio total</p>
               </div>
               <div id="monthlyToggle" class="toggle-switch" onclick="toggleMonthly()"></div>
             </div>
@@ -1262,266 +1262,185 @@
       <div id="cardsContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10"></div>
     </section>
   </div> <!-- TAB: GUIA -->
-  <div id="tab-guia" class="tab-content"> <!-- Hero -->
-    <section class="reveal relative overflow-hidden flex items-center px-6 md:px-12 py-14"
-      style="background:linear-gradient(135deg,#0a0a0f 0%,#1a0800 55%,#0a0a0f 100%)">
-      <div class="absolute inset-0 pointer-events-none"
-        style="background:radial-gradient(circle at 72% 50%, rgba(254,80,0,0.18) 0%, transparent 60%)"></div>
-      <div class="relative z-10 max-w-6xl mx-auto w-full">
-        <h2 class="text-3xl md:text-4xl font-semibold text-white leading-tight">Tus dispositivos Apple protegidos <span
-            style="color:#FE5000">contra todo riesgo.</span> </h2>
-      </div>
-    </section> <!-- ¿Qu&copy; cubre tu seguro? — fondo blanco -->
-    <section class="reveal py-10 px-4" style="background:#fff">
-      <div class="max-w-6xl mx-auto">
-        <p class="section-label mb-6">¿Qu&copy; cubre tu seguro?</p>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-          <div class="coverage-card card-hover glow-brand">
-            <div class="p-5" style="background:linear-gradient(135deg,#FE5000 0%,#c23d00 100%)">
-              <div class="flex items-center gap-3">
-                <div class="rounded-full p-2.5" style="background:rgba(255,255,255,0.2)"> <svg viewBox="0 0 24 24"
-                    fill="white" width="22" height="22">
-                    <path d="M12 2L4 5.5V12c0 5 3.5 9.7 8 11 4.5-1.3 8-6 8-11V5.5L12 2z" />
-                  </svg> </div>
-                <div>
-                  <p class="font-semibold text-white text-base">Todo Riesgo</p>
-                  <p class="text-xs uppercase tracking-widest" style="color:rgba(255,255,255,0.7)">Cobertura completa
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="p-6">
-              <ul class="space-y-3">
-                <li class="flex items-center gap-3 text-sm" style="color:#070200"><span
-                    class="w-2 h-2 rounded-full flex-shrink-0" style="background:#FE5000"></span>Daño Accidental (caídas
-                  y mojaduras)</li>
-                <li class="flex items-center gap-3 text-sm" style="color:#070200"><span
-                    class="w-2 h-2 rounded-full flex-shrink-0" style="background:#FE5000"></span>Robo y Hurto</li>
-                <li class="flex items-center gap-3 text-sm" style="color:#070200"><span
-                    class="w-2 h-2 rounded-full flex-shrink-0" style="background:#FE5000"></span>Sin Deducible</li>
-              </ul>
-            </div>
+  <div id="tab-guia" class="tab-content">
+
+    <!-- ===== AVISO COMPARTIDO ===== -->
+    <section class="reveal py-10 px-4" style="background:#fff8f5">
+      <div class="max-w-5xl mx-auto">
+        <div class="rounded-[20px] p-7 md:p-9" style="background:#ffdbcc;border:1.5px solid #e2bfb0">
+          <div class="flex flex-col items-center text-center gap-3 mb-7">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="32" height="32" style="color:#a04100"><path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/></svg>
+            <p class="text-xs font-semibold uppercase tracking-widest" style="color:#7a3000">Aplica para ambas coberturas</p>
+            <h3 class="text-xl font-bold leading-tight" style="color:#351000">Durante el proceso de facturación y activación,<br>es obligatorio verificar que:</h3>
           </div>
-          <div class="coverage-card card-hover" style="box-shadow:0 4px 24px rgba(7,2,0,0.1)">
-            <div class="p-5" style="background:linear-gradient(135deg,#524C4A 0%,#070200 100%)">
-              <div class="flex items-center gap-3">
-                <div class="rounded-full p-2.5" style="background:rgba(255,255,255,0.2)"> <svg viewBox="0 0 24 24"
-                    fill="white" width="22" height="22">
-                    <path
-                      d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z" />
-                  </svg> </div>
-                <div>
-                  <p class="font-semibold text-white text-base">Robo y Hurto</p>
-                  <p class="text-xs uppercase tracking-widest" style="color:rgba(255,255,255,0.7)">Protección contra
-                    sustracción</p>
-                </div>
-              </div>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div class="flex items-center gap-3 p-4 rounded-[12px] bg-white" style="border:1px solid rgba(226,191,176,0.6)">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22" style="color:#FE5000;flex-shrink:0"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+              <p class="text-sm" style="color:#191c1e">Precio de lista del dispositivo, sin descuentos ocasionales.</p>
             </div>
-            <div class="p-6">
-              <ul class="space-y-3">
-                <li class="flex items-center gap-3 text-sm" style="color:#070200"><span
-                    class="w-2 h-2 rounded-full flex-shrink-0" style="background:#524C4A"></span>Robo con violencia</li>
-                <li class="flex items-center gap-3 text-sm" style="color:#070200"><span
-                    class="w-2 h-2 rounded-full flex-shrink-0" style="background:#524C4A"></span>Hurto (descuido)</li>
-                <li class="flex items-center gap-3 text-sm" style="color:#070200"><span
-                    class="w-2 h-2 rounded-full flex-shrink-0" style="background:#524C4A"></span>Sin Deducible</li>
-              </ul>
+            <div class="flex items-center gap-3 p-4 rounded-[12px] bg-white" style="border:1px solid rgba(226,191,176,0.6)">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22" style="color:#FE5000;flex-shrink:0"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+              <p class="text-sm" style="color:#191c1e">El valor de la póliza coincida con el cobrado en factura.</p>
             </div>
-          </div>
-        </div>
-      </div>
-    </section> <!-- ¿Cómo funcionan los Seguros? — fondo oscuro bento grid -->
-    <section class="reveal py-10 px-4" style="background:#070200">
-      <div class="max-w-6xl mx-auto">
-        <p class="section-label mb-6" style="color:rgba(255,255,255,0.45)">¿Cómo funcionan los Seguros?</p>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4"> <!-- Grande: Producto nuevo -->
-          <div class="md:col-span-2 rounded-[20px] p-7 flex flex-col gap-3"
-            style="background:#1a0c04;border:1px solid rgba(254,80,0,0.15)">
-            <div class="w-10 h-10 rounded-xl flex items-center justify-center" style="background:rgba(254,80,0,0.12)">
-              <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20" style="color:#FE5000">
-                <path
-                  d="M20 6h-2.18c.07-.44.18-.86.18-1a3 3 0 00-6 0c0 .14.11.56.18 1H10c-.55 0-1 .45-1 1v2c0 .55.45 1 1 1h10c.55 0 1-.45 1-1V7c0-.55-.45-1-1-1zm-5 0a1 1 0 11-2 0 1 1 0 012 0zM4 17h16v2H4zm0-4h16v2H4z" />
-              </svg>
-            </div>
-            <p class="font-semibold text-white">Producto nuevo</p>
-            <p class="text-sm" style="color:rgba(255,255,255,0.5)">Seguro exclusivo para dispositivos reci&copy;n
-              adquiridos. Cobertura desde el primer día de compra.</p>
-          </div> <!-- Naranja: Sin deducible -->
-          <div class="rounded-[20px] p-7 flex flex-col gap-3" style="background:#FE5000">
-            <div class="w-10 h-10 rounded-xl flex items-center justify-center" style="background:rgba(255,255,255,0.2)">
-              <svg viewBox="0 0 24 24" fill="white" width="20" height="20">
-                <path
-                  d="M12 2L4 5.5V12c0 5 3.5 9.7 8 11 4.5-1.3 8-6 8-11V5.5L12 2zm-2 16l-4-4 1.41-1.41L10 15.17l6.59-6.59L18 10l-8 8z" />
-              </svg>
-            </div>
-            <p class="font-semibold text-white">Sin deducible</p>
-            <p class="text-sm" style="color:rgba(255,255,255,0.8)">En caso de siniestro el cliente no paga ningún costo
-              adicional.</p>
-          </div> <!-- Cambio de equipo -->
-          <div class="rounded-[20px] p-7 flex flex-col gap-3"
-            style="background:#120806;border:1px solid rgba(255,255,255,0.07)">
-            <div class="w-10 h-10 rounded-xl flex items-center justify-center" style="background:rgba(254,80,0,0.12)">
-              <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20" style="color:#FE5000">
-                <path
-                  d="M21 10.12h-6.78l2.74-2.82c-2.73-2.7-7.15-2.8-9.88-.1-2.73 2.71-2.73 7.08 0 9.79 2.73 2.71 7.15 2.71 9.88 0C18.32 15.65 19 14.08 19 12.1h2c0 1.98-.88 4.55-2.64 6.29-3.51 3.48-9.21 3.48-12.72 0-3.5-3.47-3.53-9.11-.02-12.58 3.51-3.47 9.14-3.47 12.65 0L21 3v7.12z" />
-              </svg>
-            </div>
-            <p class="font-semibold text-white">Cambio de equipo</p>
-            <p class="text-sm" style="color:rgba(255,255,255,0.5)">Permite cambiar el equipo asegurado en cualquier
-              momento de la vigencia.</p>
-          </div> <!-- 1-2 siniestros -->
-          <div class="rounded-[20px] p-7 flex flex-col gap-3"
-            style="background:#120806;border:1px solid rgba(255,255,255,0.07)">
-            <div class="w-10 h-10 rounded-xl flex items-center justify-center" style="background:rgba(254,80,0,0.12)">
-              <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20" style="color:#FE5000">
-                <path
-                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z" />
-              </svg>
-            </div>
-            <p class="font-semibold text-white">1–2 siniestros/año</p>
-            <p class="text-sm" style="color:rgba(255,255,255,0.5)">1 por daño accidental o mojadura + 1 por robo o
-              hurto, según la modalidad.</p>
-          </div> <!-- Precio de lista -->
-          <div class="rounded-[20px] p-7 flex flex-col gap-3"
-            style="background:#120806;border:1px solid rgba(255,255,255,0.07)">
-            <div class="w-10 h-10 rounded-xl flex items-center justify-center" style="background:rgba(254,80,0,0.12)">
-              <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20" style="color:#FE5000">
-                <path
-                  d="M19.5 3.5L18 2l-1.5 1.5L15 2l-1.5 1.5L12 2l-1.5 1.5L9 2 7.5 3.5 6 2 4.5 3.5 3 2v20l1.5-1.5L6 22l1.5-1.5L9 22l1.5-1.5L12 22l1.5-1.5L15 22l1.5-1.5L18 22l1.5-1.5L21 22V2l-1.5 1.5zM19 19.09H5V4.91h14v14.18z" />
-              </svg>
-            </div>
-            <p class="font-semibold text-white">Precio de lista</p>
-            <p class="text-sm" style="color:rgba(255,255,255,0.5)">Sin descuentos ocasionales. Se usa el precio oficial
-              del fabricante.</p>
-          </div>
-        </div>
-      </div>
-    </section> <!-- Siniestro — fondo gris cálido -->
-    <section class="reveal py-10 px-4" style="background:#f5f5f7">
-      <div class="max-w-6xl mx-auto">
-        <p class="section-label mb-6">¿Qu&copy; sucede en caso de siniestro?</p>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-5">
-          <div class="flex gap-4 items-start p-5 rounded-[16px]" style="background:#120806;border:1px solid rgba(255,255,255,0.08)">
-            <div
-              class="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0 text-sm font-semibold text-white"
-              style="background:linear-gradient(135deg,#FE5000,#c23d00)">01</div>
-            <div>
-              <p class="font-semibold text-sm mb-0.5" style="color:#070200">Declarar el siniestro</p>
-              <p class="text-xs leading-relaxed" style="color:#524C4A">A través de la app INSURAMA o el Espacio Cliente
-                web.</p>
-            </div>
-          </div>
-          <div class="flex gap-4 items-start p-5 rounded-[16px]" style="background:#120806;border:1px solid rgba(255,255,255,0.08)">
-            <div
-              class="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0 text-sm font-semibold text-white"
-              style="background:linear-gradient(135deg,#FE5000,#c23d00)">02</div>
-            <div>
-              <p class="font-semibold text-sm mb-0.5" style="color:#070200">Adjuntar factura</p>
-              <p class="text-xs leading-relaxed" style="color:#524C4A">Factura o boleta de compra del equipo.</p>
-            </div>
-          </div>
-        </div>
-        <p class="text-xs font-medium uppercase tracking-wide mb-3" style="color:#818181">Documentación según el tipo de
-          siniestro</p>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-5">
-          <div class="p-5 rounded-[16px]" style="background:#fff;border:1.5px solid rgba(254,80,0,0.25)">
-            <p class="font-semibold text-sm mb-3" style="color:#FE5000">Daño accidental o mojadura</p>
-            <ul class="space-y-2">
-              <li class="flex items-start gap-2 text-xs" style="color:#524C4A"><span style="color:#FE5000">›</span>
-                Fotografías del equipo dañado</li>
-              <li class="flex items-start gap-2 text-xs" style="color:#524C4A"><span style="color:#FE5000">›</span>
-                Factura del equipo</li>
-            </ul>
-          </div>
-          <div class="p-5 rounded-[16px]" style="background:#fff;border:1.5px solid rgba(7,2,0,0.15)">
-            <p class="font-semibold text-sm mb-3" style="color:#070200">Robo o hurto</p>
-            <ul class="space-y-2">
-              <li class="flex items-start gap-2 text-xs" style="color:#524C4A"><span style="color:#524C4A">›</span>
-                Factura del equipo</li>
-              <li class="flex items-start gap-2 text-xs" style="color:#524C4A"><span style="color:#524C4A">›</span>
-                Denuncia policial</li>
-              <li class="flex items-start gap-2 text-xs" style="color:#524C4A"><span style="color:#524C4A">›</span>
-                Bloqueo de IMEI</li>
-            </ul>
-          </div>
-        </div>
-        <div class="flex items-center gap-3 p-4 rounded-[16px]"
-          style="background:#fff;border:1px solid rgba(254,80,0,0.2)"> <svg viewBox="0 0 24 24" fill="currentColor"
-            width="18" height="18" style="color:#FE5000;flex-shrink:0">
-            <path
-              d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
-          </svg>
-          <p class="text-xs" style="color:#524C4A">Es imprescindible tener activa la <strong
-              style="color:#070200">geolocalización de la app INSURAMA</strong>.</p>
-        </div>
-      </div>
-    </section> <!-- Extensión de Garantía — fondo ámbar suave -->
-    <section class="reveal py-10 px-4" style="background:#070200">
-      <div class="max-w-6xl mx-auto">
-        <p class="section-label mb-6" style="color:rgba(255,255,255,0.45)">¿Cómo funciona la Extensión de Garantía?</p>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <!-- Grande: Misma cobertura -->
-          <div class="md:col-span-2 rounded-[20px] p-7 flex flex-col gap-3" style="background:#1a0c04;border:1px solid rgba(254,80,0,0.15)">
-            <div class="w-10 h-10 rounded-xl flex items-center justify-center" style="background:rgba(254,80,0,0.12)">
-              <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20" style="color:#FE5000">
-                <path d="M12 2L4 5.5V12c0 5 3.5 9.7 8 11 4.5-1.3 8-6 8-11V5.5L12 2z"/>
-              </svg>
-            </div>
-            <p class="font-semibold text-white">Misma cobertura del fabricante</p>
-            <p class="text-sm" style="color:rgba(255,255,255,0.5)">Cubre averías y defectos cubiertos en la garantía oficial.</p>
-          </div>
-          <!-- Naranja: Sustitución -->
-          <div class="rounded-[20px] p-7 flex flex-col gap-3" style="background:#FE5000">
-            <div class="w-10 h-10 rounded-xl flex items-center justify-center" style="background:rgba(255,255,255,0.2)">
-              <svg viewBox="0 0 24 24" fill="white" width="20" height="20">
-                <path d="M21 10.12h-6.78l2.74-2.82c-2.73-2.7-7.15-2.8-9.88-.1-2.73 2.71-2.73 7.08 0 9.79 2.73 2.71 7.15 2.71 9.88 0C18.32 15.65 19 14.08 19 12.1h2c0 1.98-.88 4.55-2.64 6.29-3.51 3.48-9.21 3.48-12.72 0-3.5-3.47-3.53-9.11-.02-12.58 3.51-3.47 9.14-3.47 12.65 0L21 3v7.12z"/>
-              </svg>
-            </div>
-            <p class="font-semibold text-white">Sustitución si no hay reparación</p>
-            <p class="text-sm" style="color:rgba(255,255,255,0.8)">Se reemplaza por un equipo de igual o similares características.</p>
-          </div>
-          <!-- Se activa — full width -->
-          <div class="md:col-span-3 rounded-[20px] p-7 flex flex-col gap-3" style="background:#120806;border:1px solid rgba(255,255,255,0.07)">
-            <div class="w-10 h-10 rounded-xl flex items-center justify-center" style="background:rgba(254,80,0,0.12)">
-              <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20" style="color:#FE5000">
-                <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/>
-              </svg>
-            </div>
-            <p class="font-semibold text-white">Se activa al vencer la garantía oficial</p>
-            <p class="text-sm" style="color:rgba(255,255,255,0.5)">La cobertura entra en vigor al finalizar la garantía del fabricante.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- ¿Qué sucede en caso de defecto de fábrica? — fondo gris -->
-    <section class="reveal py-10 px-4" style="background:#070200">
-      <div class="max-w-6xl mx-auto">
-        <p class="section-label mb-6" style="color:rgba(255,255,255,0.45)">¿Qué sucede en caso de defecto de fábrica?</p>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div class="flex gap-4 items-start p-5 rounded-[16px]" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1)">
-            <div class="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0 text-sm font-semibold text-white" style="background:linear-gradient(135deg,#FE5000,#c23d00)">01</div>
-            <div>
-              <p class="font-semibold text-sm mb-0.5" style="color:white">Declarar el defecto</p>
-              <p class="text-xs leading-relaxed" style="color:rgba(255,255,255,0.55)">App INSURAMA o Espacio Cliente web.</p>
-            </div>
-          </div>
-          <div class="flex gap-4 items-start p-5 rounded-[16px]" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1)">
-            <div class="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0 text-sm font-semibold text-white" style="background:linear-gradient(135deg,#FE5000,#c23d00)">02</div>
-            <div>
-              <p class="font-semibold text-sm mb-0.5" style="color:white">Adjuntar documentos</p>
-              <p class="text-xs leading-relaxed" style="color:rgba(255,255,255,0.55)">Factura de compra + certificado de garantía original del fabricante.</p>
-            </div>
-          </div>
-          <div class="flex gap-4 items-start p-5 rounded-[16px]" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1)">
-            <div class="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0 text-sm font-semibold text-white" style="background:linear-gradient(135deg,#FE5000,#c23d00)">03</div>
-            <div>
-              <p class="font-semibold text-sm mb-0.5" style="color:white">Resolución</p>
-              <p class="text-xs leading-relaxed" style="color:rgba(255,255,255,0.55)">Reparación o sustitución del equipo si no hay reparación posible.</p>
+            <div class="flex items-center gap-3 p-4 rounded-[12px] bg-white" style="border:1px solid rgba(226,191,176,0.6)">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22" style="color:#FE5000;flex-shrink:0"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+              <p class="text-sm" style="color:#191c1e">El plan seleccionado sea el contratado por el cliente.</p>
             </div>
           </div>
         </div>
       </div>
     </section>
+
+    <!-- ===== SECCIÓN 1: TODO RIESGO — fondo gris claro ===== -->
+    <section class="reveal py-12 px-4" style="background:#f5f5f7">
+      <div class="max-w-6xl mx-auto">
+        <div class="flex items-center gap-3 mb-8">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="32" height="32" style="color:#FE5000"><path d="M12 2L4 5.5V12c0 5 3.5 9.7 8 11 4.5-1.3 8-6 8-11V5.5L12 2z"/></svg>
+          <div>
+            <p class="text-xs font-semibold uppercase tracking-widest mb-0.5" style="color:#FE5000">Cobertura completa</p>
+            <h2 class="text-2xl font-bold" style="color:#070200">Todo Riesgo</h2>
+          </div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+          <!-- Panel: Cómo funciona — claro -->
+          <div class="rounded-[20px] overflow-hidden bg-white" style="border:1.5px solid rgba(254,80,0,0.2);box-shadow:0 2px 16px rgba(254,80,0,0.06)">
+            <div class="px-6 py-4" style="background:linear-gradient(135deg,#FE5000,#c23d00)">
+              <p class="font-semibold text-white text-sm">¿Cómo funcionan los Seguros?</p>
+            </div>
+            <div class="p-6">
+              <ul class="space-y-3">
+                <li class="flex items-start gap-3">
+                  <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18" style="color:#FE5000;flex-shrink:0;margin-top:2px"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                  <p class="text-sm" style="color:#191c1e">Seguro para productos nuevos.</p>
+                </li>
+                <li class="flex items-start gap-3">
+                  <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18" style="color:#FE5000;flex-shrink:0;margin-top:2px"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                  <p class="text-sm" style="color:#191c1e">Cubre daño accidental (roturas o mojaduras) y robo/hurto, según la modalidad contratada.</p>
+                </li>
+                <li class="flex items-start gap-3">
+                  <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18" style="color:#FE5000;flex-shrink:0;margin-top:2px"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                  <p class="text-sm font-semibold" style="color:#191c1e">En caso de siniestro, NO HAY DEDUCIBLE.</p>
+                </li>
+                <li class="flex items-start gap-3">
+                  <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18" style="color:#FE5000;flex-shrink:0;margin-top:2px"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                  <p class="text-sm" style="color:#191c1e">Permite cambiar el equipo asegurado en cualquier momento de la vigencia.</p>
+                </li>
+                <li class="flex items-start gap-3">
+                  <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18" style="color:#FE5000;flex-shrink:0;margin-top:2px"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                  <p class="text-sm" style="color:#191c1e">Cubre 1 o 2 siniestros: 1 por daño accidental/mojadura + 1 por robo o hurto al año.</p>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Panel: Caso de siniestro — oscuro -->
+          <div class="rounded-[20px] overflow-hidden" style="background:#191c1e">
+            <div class="px-6 py-4" style="background:rgba(0,0,0,0.3)">
+              <p class="font-semibold text-white text-sm">¿Qué sucede en caso de siniestro?</p>
+            </div>
+            <div class="p-6 space-y-3">
+              <div class="flex items-start gap-3 pb-3" style="border-bottom:1px solid rgba(255,255,255,0.08)">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20" style="color:#ffb693;flex-shrink:0;margin-top:2px"><path d="M17 1.01L7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14z"/></svg>
+                <p class="text-sm text-white">1. Declarar el siniestro a través de la app <strong style="color:#ffb693">INSURAMA</strong> o Espacio Cliente web.</p>
+              </div>
+              <div class="flex items-start gap-3 pb-3" style="border-bottom:1px solid rgba(255,255,255,0.08)">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20" style="color:#ffb693;flex-shrink:0;margin-top:2px"><path d="M19.5 3.5L18 2l-1.5 1.5L15 2l-1.5 1.5L12 2l-1.5 1.5L9 2 7.5 3.5 6 2 4.5 3.5 3 2v20l1.5-1.5L6 22l1.5-1.5L9 22l1.5-1.5L12 22l1.5-1.5L15 22l1.5-1.5L18 22l1.5-1.5L21 22V2l-1.5 1.5z"/></svg>
+                <p class="text-sm text-white">2. Adjuntar factura/boleta de compra del equipo.</p>
+              </div>
+              <div class="flex items-start gap-3 pb-3" style="border-bottom:1px solid rgba(255,255,255,0.08)">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20" style="color:#ffb693;flex-shrink:0;margin-top:2px"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+                <p class="text-sm text-white">3. <strong style="color:#ffb693">Daño accidental:</strong> fotografías del equipo dañado + factura.</p>
+              </div>
+              <div class="flex items-start gap-3 pb-3" style="border-bottom:1px solid rgba(255,255,255,0.08)">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20" style="color:#ffb693;flex-shrink:0;margin-top:2px"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
+                <p class="text-sm text-white">4. <strong style="color:#ffb693">Robo o hurto:</strong> factura + denuncia policial + bloqueo de IMEI.</p>
+              </div>
+              <div class="flex items-center gap-3 p-3 rounded-[10px]" style="background:rgba(255,182,147,0.1);border:1px solid rgba(255,182,147,0.2)">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16" style="color:#ffb693;flex-shrink:0"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                <p class="text-xs" style="color:rgba(255,255,255,0.85)">Es imprescindible tener activa la <strong style="color:#ffb693">geolocalización de la app INSURAMA</strong>.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SECCIÓN 2: EXTENSIÓN DE GARANTÍA — fondo blanco ===== -->
+    <section class="reveal py-12 px-4" style="background:#fff">
+      <div class="max-w-6xl mx-auto">
+        <div class="flex items-center gap-3 mb-8">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="32" height="32" style="color:#FE5000"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+          <div>
+            <p class="text-xs font-semibold uppercase tracking-widest mb-0.5" style="color:#FE5000">Garantía extendida</p>
+            <h2 class="text-2xl font-bold" style="color:#070200">Extensión de Garantía</h2>
+          </div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+          <!-- Panel: Cómo funciona — claro con header navy -->
+          <div class="rounded-[20px] overflow-hidden bg-white" style="border:1.5px solid #e5e7eb;box-shadow:0 2px 16px rgba(0,0,0,0.05)">
+            <div class="px-6 py-4" style="background:#0b1c30">
+              <p class="font-semibold text-white text-sm">¿Cómo funciona la Extensión de Garantía?</p>
+            </div>
+            <div class="p-6">
+              <ul class="space-y-3">
+                <li class="flex items-start gap-3">
+                  <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18" style="color:#FE5000;flex-shrink:0;margin-top:2px"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                  <p class="text-sm" style="color:#191c1e">Cubre el mismo tipo de averías y defectos cubiertos en la garantía oficial del fabricante.</p>
+                </li>
+                <li class="flex items-start gap-3">
+                  <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18" style="color:#FE5000;flex-shrink:0;margin-top:2px"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                  <p class="text-sm" style="color:#191c1e">Si no es posible la reparación, se sustituye por un equipo de igual o similares características.</p>
+                </li>
+                <li class="flex items-start gap-3">
+                  <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18" style="color:#FE5000;flex-shrink:0;margin-top:2px"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                  <p class="text-sm" style="color:#191c1e">La cobertura se activa al finalizar la garantía oficial del fabricante.</p>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Panel: Defecto de fábrica — naranja oscuro/café -->
+          <div class="rounded-[20px] overflow-hidden" style="background:#a04100">
+            <div class="px-6 py-4" style="background:rgba(0,0,0,0.15)">
+              <p class="font-semibold text-white text-sm">¿Qué sucede en caso de defecto de fábrica?</p>
+            </div>
+            <div class="p-6 space-y-5">
+              <div class="flex items-start gap-4">
+                <span class="text-3xl font-bold leading-none flex-shrink-0" style="color:rgba(255,255,255,0.25)">1</span>
+                <p class="text-sm text-white leading-relaxed pt-1">Declarar el defecto a través de la app <strong style="color:#ffdbcc">INSURAMA</strong> o Espacio Cliente web.</p>
+              </div>
+              <div class="flex items-start gap-4">
+                <span class="text-3xl font-bold leading-none flex-shrink-0" style="color:rgba(255,255,255,0.25)">2</span>
+                <p class="text-sm text-white leading-relaxed pt-1">Adjuntar la factura de compra + copia del certificado de garantía original del fabricante.</p>
+              </div>
+              <div class="flex items-start gap-4">
+                <span class="text-3xl font-bold leading-none flex-shrink-0" style="color:rgba(255,255,255,0.25)">3</span>
+                <p class="text-sm text-white leading-relaxed pt-1">Reparación o sustitución del equipo si no es posible la reparación.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CTA BANNER ===== -->
+    <section class="reveal py-14 px-4" style="background:#0b1c30">
+      <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
+        <div class="text-center md:text-left">
+          <h2 class="text-2xl font-bold text-white mb-2">¿Listo para asegurar tu dispositivo Apple?</h2>
+          <p class="text-sm" style="color:#b7c8e1">Obtén tu cotización personalizada en menos de 2 minutos.</p>
+        </div>
+        <button onclick="showTab('cotizador', document.querySelectorAll('.tab-btn')[0])" class="flex-shrink-0 px-8 py-3 rounded-full font-semibold text-white transition-all active:scale-95" style="background:linear-gradient(135deg,#FE5000,#c23d00);box-shadow:0 4px 20px rgba(254,80,0,0.35)">
+          Cotizar ahora
+        </button>
+      </div>
+    </section>
+
+  </div>
   </div> <!-- TAB: CONTACTO -->
   <div id="tab-contacto" class="tab-content">
     <section class="max-w-6xl mx-auto px-4 py-10">
@@ -1540,6 +1459,28 @@
               <h3 class="font-semibold text-lg" style="color:#070200">Contacto para Clientes</h3>
             </div>
             <ul class="space-y-5">
+              <li class="flex items-center gap-4">
+                <span class="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0" style="background:rgba(254,80,0,0.08)">
+                  <svg viewBox="0 0 24 24" fill="currentColor" width="17" height="17" style="color:#FE5000">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/>
+                  </svg>
+                </span>
+                <div>
+                  <p class="text-[10px] font-semibold uppercase tracking-widest mb-0.5" style="color:#818181">Espacio Cliente</p>
+                  <a href="https://cliente.insurama.cr" target="_blank" class="text-sm font-medium" style="color:#070200" onmouseover="this.style.color='#FE5000'" onmouseout="this.style.color='#070200'">cliente.insurama.cr</a>
+                </div>
+              </li>
+              <li class="flex items-center gap-4">
+                <span class="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0" style="background:rgba(254,80,0,0.08)">
+                  <svg viewBox="0 0 24 24" fill="currentColor" width="17" height="17" style="color:#FE5000">
+                    <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                  </svg>
+                </span>
+                <div>
+                  <p class="text-[10px] font-semibold uppercase tracking-widest mb-0.5" style="color:#818181">Correo electrónico</p>
+                  <a href="mailto:clientes@insurama.cr" class="text-sm font-medium" style="color:#070200" onmouseover="this.style.color='#FE5000'" onmouseout="this.style.color='#070200'">clientes@insurama.cr</a>
+                </div>
+              </li>
               <li class="flex items-center gap-4">
                 <span class="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0" style="background:rgba(254,80,0,0.08)">
                   <svg viewBox="0 0 24 24" fill="currentColor" width="17" height="17" style="color:#FE5000">
@@ -1562,51 +1503,6 @@
                 </a>
               </div>
             </div>
-          </div>
-        </div> <!-- Tiendas -->
-        <div class="reveal stagger-1 card-hover rounded-[24px] overflow-hidden"
-          style="background:#fff;box-shadow:0 4px 24px rgba(0,0,0,0.07);border:1px solid #f0f0f0">
-          <div class="h-1" style="background:linear-gradient(90deg,#524C4A,#070200)"></div>
-          <div class="p-6 md:p-8">
-            <div class="flex items-center gap-3 mb-7">
-              <div class="w-10 h-10 rounded-xl flex items-center justify-center" style="background:rgba(7,2,0,0.07)">
-                <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20" style="color:#524C4A">
-                  <path d="M20 4H4v2h16V4zm1 10v-2l-1-5H4l-1 5v2h1v6h10v-6h4v6h2v-6h1zm-9 4H6v-4h6v4z" />
-                </svg>
-              </div>
-              <h3 class="font-semibold text-lg" style="color:#070200">Contacto para Tiendas</h3>
-            </div>
-            <ul class="space-y-5">
-              <li class="flex items-center gap-4"> <span
-                  class="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0"
-                  style="background:rgba(7,2,0,0.06)"> <svg viewBox="0 0 24 24" fill="currentColor" width="17"
-                    height="17" style="color:#524C4A">
-                    <path
-                      d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-6v-2H9l3-4 3 4h-2v2h-2z" />
-                  </svg> </span>
-                <div>
-                  <p class="text-[10px] font-semibold uppercase tracking-widest mb-0.5" style="color:#818181">Portal
-                    Insurama</p> <a href="https://distribuidor.insurama.cr" target="_blank"
-                    class="text-sm font-medium transition-colors" style="color:#070200"
-                    onmouseover="this.style.color='#FE5000'"
-                    onmouseout="this.style.color='#070200'">https://distribuidor.insurama.cr</a>
-                </div>
-              </li>
-              <li class="flex items-center gap-4"> <span
-                  class="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0"
-                  style="background:rgba(7,2,0,0.06)"> <svg viewBox="0 0 24 24" fill="currentColor" width="17"
-                    height="17" style="color:#524C4A">
-                    <path
-                      d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
-                  </svg> </span>
-                <div>
-                  <p class="text-[10px] font-semibold uppercase tracking-widest mb-0.5" style="color:#818181">Atención a
-                    tiendas</p>
-                  <p class="text-sm font-medium" style="color:#070200">(506) 7037 - 4257</p>
-                </div>
-              </li>
-            </ul>
-            
           </div>
         </div>
       </div>
@@ -1692,7 +1588,7 @@
     };
 
     let currentDevice = 'iphone';
-    let showMonthly = false;
+    let showMonthly = true;
 
     function selectDevice(dev) {
       currentDevice = dev;
@@ -1706,7 +1602,7 @@
 
     function toggleMonthly() {
       showMonthly = !showMonthly;
-      document.getElementById('monthlyToggle').classList.toggle('on', showMonthly);
+      document.getElementById('monthlyToggle').classList.toggle('on', !showMonthly);
       calculate();
     }
 
@@ -1744,7 +1640,7 @@
       var plansHtml = plans.map(function (p, i) {
         var total = p.p;
         var monthly = total / p.m;
-        var isHighlight = recommended ? (i === 2) : (title === 'Ext. Garantia' ? (i === plans.length - 1) : (i === 0));
+        var isHighlight = recommended ? (i === 0) : (title === 'Ext. Garantia' ? (i === 0) : (i === plans.length - 1));
         var rowBg = isHighlight ? t.lightBg : '#f8f8f8';
         var rowBorder = isHighlight ? t.highlightBorder : '#e5e7eb';
         var priceColor = isHighlight ? t.iconColor : '#070200';
@@ -1789,33 +1685,33 @@
         rangeInd.classList.remove('hidden');
         document.getElementById('rangeText').textContent = 'Rango detectado: $' + data.ranges[rangeIdx][0] + ' - $' + data.ranges[rangeIdx][1];
 
-        var tr = data.todoRiesgo;
-        cards.push(buildCard('Todo Riesgo', 'Dano Accidental + Robo + Hurto', true,
-          [{ m: 12, p: tr[12][rangeIdx] }, { m: 18, p: tr[18][rangeIdx] }, { m: 24, p: tr[24][rangeIdx] }]));
-
-        if (dev === 'mac') {
-          var da = data.danoAccidental;
-          cards.push(buildCard('Daño Accidental', 'Cobertura por dano accidental', false,
-            [{ m: 12, p: da[12][rangeIdx] }, { m: 18, p: da[18][rangeIdx] }, { m: 24, p: da[24][rangeIdx] }]));
-        } else {
-          var rh = data.roboHurto;
-          cards.push(buildCard('Robo y Hurto', 'Proteccion contra sustraccion del equipo', false,
-            [{ m: 12, p: rh[12][rangeIdx] }, { m: 18, p: rh[18][rangeIdx] }, { m: 24, p: rh[24][rangeIdx] }]));
-        }
-
         var egRangeIdx = findRange(EXT_GARANTIA.ranges, val);
         if (egRangeIdx >= 0) {
           if (dev === 'iphone') {
             var eg12 = EXT_GARANTIA.celulares[12][egRangeIdx];
             var eg24 = EXT_GARANTIA.celulares[24][egRangeIdx];
             var egPlans = [];
-            if (eg12 !== null) egPlans.push({ m: 12, p: eg12 });
             if (eg24 !== null) egPlans.push({ m: 24, p: eg24 });
+            if (eg12 !== null) egPlans.push({ m: 12, p: eg12 });
             if (egPlans.length > 0) cards.push(buildCard('Ext. Garantia', 'Extension de garantia del fabricante', false, egPlans));
           } else {
             var eg36 = EXT_GARANTIA.resto[36][egRangeIdx];
             if (eg36 !== null) cards.push(buildCard('Ext. Garantia', 'Extension de garantia del fabricante', false, [{ m: 36, p: eg36 }]));
           }
+        }
+
+        var tr = data.todoRiesgo;
+        cards.push(buildCard('Todo Riesgo', 'Dano Accidental + Robo + Hurto', true,
+          [{ m: 24, p: tr[24][rangeIdx] }, { m: 18, p: tr[18][rangeIdx] }, { m: 12, p: tr[12][rangeIdx] }]));
+
+        if (dev === 'mac') {
+          var da = data.danoAccidental;
+          cards.push(buildCard('Daño Accidental', 'Cobertura por dano accidental', false,
+            [{ m: 24, p: da[24][rangeIdx] }, { m: 18, p: da[18][rangeIdx] }, { m: 12, p: da[12][rangeIdx] }]));
+        } else {
+          var rh = data.roboHurto;
+          cards.push(buildCard('Robo y Hurto', 'Proteccion contra sustraccion del equipo', false,
+            [{ m: 24, p: rh[24][rangeIdx] }, { m: 18, p: rh[18][rangeIdx] }, { m: 12, p: rh[12][rangeIdx] }]));
         }
       } else {
         rangeInd.classList.remove('hidden');
